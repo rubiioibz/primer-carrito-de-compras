@@ -1,13 +1,108 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import "tienda";
+@import "iconos";
+
+//VARIABLES
+
+$fuente-principal: "Quicksand", sans-serif 
+$amarillo-rubiio rgb(240, 204, 4);
+$color_fondo: linear-gradient(45deg, #2a1e44 50%, #0e4961, #134738);
+
+/*GENERALES E INDEX*/
+* {
+  font-family: "Quicksand", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Patrick Hand SC", cursive, sans-serif;
+}
+
+.navbar-brand {
+  margin-left: 80px;
+}
+
+.nav-item a {
+  font-family: "Patrick Hand SC", cursive, sans-serif;
+  font-size: 22px;
+  margin: 0px 10px;
+}
+
+.social-menu {
+  margin-right: 80px;
+}
+
+body {
+  background-color: #333366;
+  background-image: $color_fondo;
+  font-size: 16px;
 }
 
 .loginContainer {
-    height: 90vh;
+  height: 90vh;
+}
+
+.prefooter {
+  width: 100%;
+  min-height: 50vh;
+  background-color: rgb(20, 20, 20);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-content: center;
+
+  .redes {
+    display: block;
+    text-align: center;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    align-self: center;
+
+    h5 {
+      margin-bottom: 50px;
+      font-size: 1.5em;
+    }
+
+    a {
+      margin: 5px;
+    }
+  }
+
+  .logo2 {
+    width: 300px;
+    margin: auto auto;
+    img {
+      width: 100%;
+    }
+  }
+
+  .mapa {
+    padding: 15px;
+    margin: 15px;
+    border: solid white 2px;
+    border-radius: 20px;
+
+    iframe {
+      border-radius: 20px;
+    }
+  }
 }
 
 footer {
-    height: 10vh;
+  height: 10vh;
 }

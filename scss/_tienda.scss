@@ -1,0 +1,148 @@
+//VARIBLES
+$primario: #453469;
+$primario-oscuro: #2a1e44;
+$secundario: #134738;
+$secundario-oscuro: #0c2929;
+$amarillo-rubiio:rgb(240, 204, 4);
+$fuente-principal: 'Quicksand', sans-serif;
+$color_fondo : linear-gradient(45deg, #2a1e44 50% ,#0e4961 , #134738 );
+
+
+
+/*ESTILOS DE LA TIENDA*/
+
+.tituloTienda {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.452);
+}
+
+.gridTienda {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 1rem ;
+    
+
+    a {
+        text-decoration: none;
+    }
+}
+
+/*PRODUCTO*/
+
+.producto {
+    margin: auto;
+    background-color: rgb(75, 75, 75);
+    padding: .5rem;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.589) 2px 2px 5px;
+    transition: all ease-out 0.2s;
+    border-radius: 1rem;
+    
+        &:hover {
+            transform: scale(1.01);
+        }
+
+    .producto__precio, .producto__nombre{
+        margin: 1rem 0;
+        text-align: center;
+        line-height: 1.2;
+        
+    }
+    
+    .producto__nombre{
+        font-size: 1.1rem;
+        color: white;
+        text-transform: uppercase;
+        text-shadow: rgba(0, 0, 0, 0.589) 2px 2px 5px;
+    }
+    
+    .producto__precio{
+        font-size: 1.5rem;
+        color: white;
+        border: $amarillo-rubiio 1px;
+        font-weight: bolder;
+        text-shadow: rgba(0, 0, 0, 0.589) 2px 2px 5px;
+    }
+
+    div {
+        text-align: center;
+    }
+
+}
+
+.producto__imagen {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+    box-shadow: rgba(29, 29, 29, 0.589) 2px 2px 5px;
+}
+
+.producto__carrito--btn {
+    background-color: rgb(0, 0, 0);
+    color: $amarillo-rubiio;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    padding: .5rem;
+    transition: background-color .2s ease-in;
+    grid-column: 1 / 3;
+    margin-bottom: 1rem;
+    width: 100%;
+
+
+
+    &:hover{
+        cursor: pointer;
+        background-color: rgb(202, 173, 7);
+        color: black;
+    }
+}
+
+
+
+/*REALIZA TUS COMPRAS BANNER*/
+.bannerCompras {
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(54, 54, 54);
+    color: $amarillo-rubiio;
+    text-shadow: rgba(0, 0, 0, 0.589) 2px 2px 5px;
+    text-align: center;
+    padding: 1rem;
+    font-weight: bolder;
+
+    .preContenedorEnvios, .preContenedorCompras{
+        max-width: 500px;
+        min-width: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+
+
+    .contenedorCompras, .contenedorEnvios {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .seguras, .horas {
+        text-align: left;
+        margin-left: .5rem;
+        width: 300px;
+    }
+
+    .candado, .caja {
+        width: 100px;
+    }
+
+}
+
+
+
+
