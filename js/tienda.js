@@ -13,7 +13,7 @@ class Producto {
 
   sumarIva() {
     this.precio = this.precio * 1.21;
-    console.log("El precio con IVA incluido es de: € " + this.precio);
+    console.log("El precio de " + this.nombre + " con IVA incluido es de: € " + this.precio);
   }
 
   vender(cantidad) {
@@ -22,6 +22,7 @@ class Producto {
       console.log("Quedan " + this.stock + " unidades");
     } else {
       console.log("No quedan mas unidades de " + this.nombre + " en stock");
+      this.vendido = true;
     }
   }
 
@@ -30,6 +31,7 @@ class Producto {
     console.log("Precio: € " + this.precio);
     console.log("Descripcion: " + this.descripcion);
     console.log("Medidas: " + this.medidas);
+    console.log("vendido: " + this.vendido);
   }
 }
 
@@ -98,4 +100,17 @@ cuadros.push(
 
 for (const cuadro of cuadros) {
   console.log(cuadro);
+  cuadro.sumarIva()
+}
+
+
+function nuevoCuadro() {
+  cuadros.push ( new Producto (
+    prompt("Ingrese nombre de cuadro nuevo:"),
+    prompt("ingrese precio del nuevo cuadro"),
+    prompt("Ingrese descripcion del nuevo cuadro"),
+    prompt("Ingrese medidas del nuevo cuadro"),
+    Number(prompt("Ingrese cantidad de Stock disponible")),
+    this.vendido = false
+  ))
 }
