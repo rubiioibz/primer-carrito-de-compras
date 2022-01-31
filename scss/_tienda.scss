@@ -31,17 +31,18 @@ $color_fondo : linear-gradient(45deg, #2a1e44 50% ,#0e4961 , #134738 );
 
 .producto {
     margin: auto;
-    background-color: rgb(75, 75, 75);
+    background-color: rgb(255, 255, 255);
     padding: .5rem;
     width: 100%;
     box-shadow: rgba(0, 0, 0, 0.589) 2px 2px 5px;
     transition: all ease-out 0.2s;
     border-radius: 1rem;
     
+    
         &:hover {
             transform: scale(1.01);
-        }
-
+        }    
+    
     .producto__precio, .producto__nombre{
         margin: 1rem 0;
         text-align: center;
@@ -51,14 +52,14 @@ $color_fondo : linear-gradient(45deg, #2a1e44 50% ,#0e4961 , #134738 );
     
     .producto__nombre{
         font-size: 1.1rem;
-        color: white;
+        color: rgb(0, 0, 0);
         text-transform: uppercase;
         text-shadow: rgba(0, 0, 0, 0.589) 2px 2px 5px;
     }
     
     .producto__precio{
         font-size: 1.5rem;
-        color: white;
+        color: rgb(0, 0, 0);
         border: $amarillo-rubiio 1px;
         font-weight: bolder;
         text-shadow: rgba(0, 0, 0, 0.589) 2px 2px 5px;

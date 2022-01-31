@@ -81,7 +81,7 @@ cuadros.push(
 cuadros.push(
   new Producto(
     "Regular Show",
-    "30",
+    30,
     "Cuadro hecho en madera con pintura acrilica",
     "30cm x 25cm",
     1

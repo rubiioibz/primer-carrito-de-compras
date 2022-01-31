@@ -252,6 +252,12 @@
         grid-template-columns: 1fr;
     }
 
+    .gridProducto {
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: 2rem;
+    }
+
 
 }
 
@@ -486,5 +492,11 @@
     //tienda
     .gridTienda{
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gridProducto {
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: 2rem;
     }
 }
