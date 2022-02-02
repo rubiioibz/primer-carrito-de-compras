@@ -22,9 +22,9 @@
     />
     <!--ANIMATE-CSS-->
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 
     <!--SEO-->
     <meta
@@ -129,9 +129,7 @@
                 ><i class="fab fa-instagram mx-2"></i
               ></a>
 
-              <a href="#"
-                ><i class="fas fa-shopping-cart mx-2"></i></a>
-
+              <a href="#"><i class="fas fa-shopping-cart mx-2"></i></a>
             </div>
           </div>
         </div>
@@ -139,176 +137,72 @@
     </header>
 
     <div class="row bannerCompras m-0">
-
-      <div class="col-sm-12 col-md-3 preContenedorCompras animate__animated animate__bounceInLeft animate__slow">
-
+      <div
+        class="col-sm-12 col-md-3 preContenedorCompras animate__animated animate__bounceInLeft animate__slow"
+      >
         <div class="contenedorCompras">
           <div class="candado">
             <i class="fas fa-lock fa-5x"></i>
           </div>
-        
+
           <div class="seguras">
             <h4>Realiza tus compras<br />100 % Seguras</h4>
-          <p>PayPal y tarjeta de crédito Visa o Mastercard </p>
+            <p>PayPal y tarjeta de crédito Visa o Mastercard</p>
           </div>
         </div>
-
       </div>
 
-      <div class="col-sm-12 col-md-3 preContenedorEnvios animate__animated animate__bounceInRight animate__slow">
-
+      <div
+        class="col-sm-12 col-md-3 preContenedorEnvios animate__animated animate__bounceInRight animate__slow"
+      >
         <div class="contenedorEnvios">
           <div class="caja">
             <i class="fas fa-box-open fa-5x"></i>
           </div>
-        
+
           <div class="horas">
-            <h4>Envíos seguros y<br>en 24 horas</h4>
-          <p>Gracias a Correos Express y Correos certificado, con extra de protección</p>
+            <h4>Envíos seguros y<br />en 24 horas</h4>
+            <p>
+              Gracias a Correos Express y Correos certificado, con extra de
+              protección
+            </p>
           </div>
         </div>
-      
       </div>
-    
     </div>
-    
-    <main>
 
-      <h1 id="titulo1" class="text-warning text-center my-3 tituloTienda">Tienda</h1>
+    <main>
+      <h1 id="titulo1" class="text-warning text-center my-3 tituloTienda">
+        Tienda
+      </h1>
 
       <div class="mainTienda">
-
         <div class="contenedorSelector">
           <select name="selectorCategoria" id="selector">
             <option value="todos">Todos</option>
             <option value="menorPrecio">Menor precio a mayor</option>
             <option value="mayorPrecio">Mayor precio a menor</option>
-            <option value="cuadrosGrandes">Cuadros grandes</option>
+            <optgroup label="Tamaño:">
+              <option value="cuadrosChicos">Chicos</option>
+              <option value="cuadrosMedianos">Medianos</option>
+              <option value="cuadrosGrandes">Grandes</option>
+            </optgroup>
           </select>
+
+          <div>
+            <img class="img-fluid imgSelector" src="/img/cuadros/sad.jpg" alt="">
+          </div>
         </div>
-  
+
         <div class="text-light m-0">
-
           <div id="contenedorProducto" class="gridTienda col-9 mx-auto">
-
-            <!--
-
-              <div class="producto">
-                  <a class="producto__link" href="producto.html">
-                      <img class="producto__imagen" src="../../img/cuadros/1.jpg" alt="imagen camisa">
-                  </a>
-                      <div class="producto__informacion">
-                          <p class="producto__nombre">"Rubiio Posca"</p>
-                          <p class="producto__precio">€100</p>
-                          <input class="producto__carrito--btn" type="button" value="Agregar al carrito">
-                      </div>
-                  
-              </div>
-      
-              <div class="producto">
-                  <a class="producto__link" href="producto.html">
-                      <img class="producto__imagen" src="../../img/cuadros/2.jpg" alt="imagen camisa">
-                    </a>
-                      <div class="producto__informacion">
-                          <p class="producto__nombre">"Drubiio"</p>
-                          <p class="producto__precio">€15</p>
-                          <input class="producto__carrito--btn" type="submit" value="Agregar al carrito">
-                      </div>
-                  
-              </div>
-      
-              <div class="producto">
-                  <a class="producto__link" href="producto.html">
-                      <img class="producto__imagen" src="../../img/cuadros/3.jpg" alt="imagen camisa">
-                    </a>
-                      <div class="producto__informacion">
-                          <p class="producto__nombre">"Mache"</p>
-                          <p class="producto__precio">€25</p>
-                          <input class="producto__carrito--btn" type="submit" value="Agregar al carrito">
-                      </div>
-                  
-              </div>
-      
-              <div class="producto">
-                  <a class="producto__link" href="producto.html">
-                      <img class="producto__imagen" src="../../img/cuadros/4.jpg" alt="imagen camisa">
-                    </a>
-                      <div class="producto__informacion">
-                          <p class="producto__nombre">"BartFall"</p>
-                          <p class="producto__precio">€25</p>
-                          <input class="producto__carrito--btn" type="submit" value="Agregar al carrito">
-                      </div>
-                  
-              </div>
-      
-              <div class="producto">
-                  <a class="producto__link" href="producto.html">
-                      <img class="producto__imagen" src="../../img/cuadros/5.jpg" alt="imagen camisa">
-                    </a>
-                      <div class="producto__informacion">
-                          <p class="producto__nombre">"Regular Show</p>
-                          <p class="producto__precio">€30</p>
-                          <input class="producto__carrito--btn" type="submit" value="Agregar al carrito">
-                      </div>
-                  
-              </div>
-      
-              <div class="producto">
-                  <a class="producto__link" href="producto.html">
-                      <img class="producto__imagen" src="../../img/cuadros/6.jpg" alt="imagen camisa">
-                    </a>
-                      <div class="producto__informacion">
-                          <p class="producto__nombre">"Setario</p>
-                          <p class="producto__precio">€60</p>
-                          <input class="producto__carrito--btn" type="submit" value="Agregar al carrito">
-                      </div>
-                  
-              </div>
-  
-              <div class="producto">
-                <a class="producto__link" href="producto.html">
-                    <img class="producto__imagen" src="../../img/cuadros/7.jpg" alt="imagen camisa">
-                  </a>
-                    <div class="producto__informacion">
-                        <p class="producto__nombre">"Capucha</p>
-                        <p class="producto__precio">€50</p>
-                        <input class="producto__carrito--btn" type="submit" value="Agregar al carrito">
-                    </div>
-                
-            </div>
-  
-            <div class="producto">
-              <a class="producto__link" href="producto.html">
-                  <img class="producto__imagen" src="../../img/cuadros/8.jpg" alt="imagen camisa">
-                </a>
-                  <div class="producto__informacion">
-                      <p class="producto__nombre">"Verano verde</p>
-                      <p class="producto__precio">€35</p>
-                      <input class="producto__carrito--btn" type="submit" value="Agregar al carrito">
-                  </div>
-              
-            </div>
-  
-            <div class="producto">
-              <a class="producto__link" href="producto.html">
-                  <img class="producto__imagen" src="../../img/cuadros/9.jpg" alt="imagen camisa">
-                </a>
-                  <div class="producto__informacion">
-                      <p class="producto__nombre">"Letra R</p>
-                      <p class="producto__precio">€200</p>
-                      <input class="producto__carrito--btn" type="submit" value="Agregar al carrito">
-                  </div>
-            
-            </div>
-        -->
-          </div> 
+            <!-- Aca se muestran los productos de la tienda-->
+          </div>
         </div>
       </div>
     </main>
 
-
     <footer class="pt-4">
-
       <div class="prefooter container-fluid text-light">
         <div class="logo2">
           <img src="../img/logo-2.png" alt="logo2" />
@@ -344,7 +238,8 @@
       </div>
     </footer>
 
-
+    <!--Clase y Productos-->
+    <script src="/js/stockProductos.js"></script>
     <!--Javascript carrito-->
     <script src="/js/carrito.js"></script>
 
