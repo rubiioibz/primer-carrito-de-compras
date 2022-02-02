@@ -14,7 +14,12 @@ class Producto {
 
   sumarIva() {
     this.precio = this.precio * 1.21;
-    console.log("El precio de " + this.nombre + " con IVA incluido es de: € " + this.precio);
+    console.log(
+      "El precio de " +
+        this.nombre +
+        " con IVA incluido es de: € " +
+        this.precio
+    );
   }
 
   vender(cantidad) {
@@ -39,16 +44,13 @@ class Producto {
   }
 }
 
-
-
-
-const Productos = [
+const productos = [
   {
     id: 1,
     nombre: "rubiio posca",
     tipo: "cuadro",
     descripcion: "Cuadro realizado en enteramente en rotuladores Posca",
-    medidas: "60cm x 30cm",
+    medidas: "grande",
     stock: 1,
     precio: 100,
   },
@@ -102,7 +104,7 @@ const Productos = [
     nombre: "capucha",
     tipo: "cuadro",
     descripcion: "Cuadro reallizaco con pintura en aerosol y rotuladores Posca",
-    medidas: "30cm x 25cm",
+    medidas: "grande",
     stock: 1,
     precio: 50,
   },
@@ -111,7 +113,7 @@ const Productos = [
     nombre: "verano verde",
     tipo: "cuado",
     descripcion: "Cuadro reallizaco con pintura en aerosol y rotuladores Posca",
-    medidas: "25cm x 20cm",
+    medidas: "grande",
     stock: 2,
     precio: 35,
   },
@@ -120,35 +122,36 @@ const Productos = [
     nombre: "letra r",
     tipo: "cuadro",
     descripcion: "Cuadro realizado enteramente con pintura en aerosol",
-    medidas: "80cm x 50cm",
+    medidas: "grande",
     stock: 1,
     precio: 200,
   },
 ];
 
 function nuevoProducto() {
-  Productos.push ( new Producto (
-    Number(prompt("Ingrese ID de nuevo producto: ")),
-    prompt("Ingrese nombre de nuevo producto: "),
-    prompt("Ingrese que tipo de producto es: "),
-    prompt("Ingrese descripcion del nuevo producto: "),
-    prompt("Ingrese medidas del nuevo producto: "),
-    Number(prompt("Ingrese cantidad de Stock disponible de nuevo producto: ")),
-    prompt("ingrese precio del nuevo cuadro"),
-    this.vendido = false
-  ))
+  productos.push(
+    new Producto(
+      Number(prompt("Ingrese ID de nuevo producto: ")),
+      prompt("Ingrese nombre de nuevo producto: "),
+      prompt("Ingrese que tipo de producto es: "),
+      prompt("Ingrese descripcion del nuevo producto: "),
+      prompt("Ingrese medidas del nuevo producto: "),
+      Number(
+        prompt("Ingrese cantidad de Stock disponible de nuevo producto: ")
+      ),
+      prompt("ingrese precio del nuevo producto"),
+      (this.vendido = false)
+    )
+  );
 }
 
-
-
 const carritoDeCompras = [];
-
 
 //AGREGAR PRODUCTOS AL CARRITO
 function agregarAlCarrito() {
   let elijoProducto = parseInt(prompt("ingrese el ID de su producto:"));
 
-  let productoAgregar = Productos.find((e) => e.id == elijoProducto);
+  let productoAgregar = productos.find((e) => e.id == elijoProducto);
   carritoDeCompras.push(productoAgregar);
   console.log(carritoDeCompras);
   console.log("Has agregado " + productoAgregar.nombre + " al carrito.");
@@ -165,11 +168,9 @@ function actualizarCarrito() {
   console.log("la suma total de su Carrito es $" + suma);
 }
 
-
-
 function filtroPrecio(num) {
-  let filtro = Productos.filter((e) => e.precio <= num);
-  if (Productos.some((e) => e.precio <= num)) {
+  let filtro = productos.filter((e) => e.precio <= num);
+  if (productos.some((e) => e.precio <= num)) {
     console.log(filtro);
     console.log("Hay " + filtro.length + " productos de €" + num + " o menos.");
   } else {
@@ -179,8 +180,8 @@ function filtroPrecio(num) {
 // filtroPrecio(Number(prompt("ingrese numero:")));
 
 function filtroNombre(letras) {
-  let filtroName = Productos.filter((e) => e.nombre.includes(letras));
-  if (Productos.some((e) => e.nombre != letras)) {
+  let filtroName = productos.filter((e) => e.nombre.includes(letras));
+  if (productos.some((e) => e.nombre != letras)) {
     console.log(filtroName);
   } else {
     console.log("No es una letra");
@@ -189,16 +190,16 @@ function filtroNombre(letras) {
 // filtroNombre(prompt("ingrese letra:"))
 
 function listaNombres() {
-  let lista = Productos.map((e) => e.nombre);
+  let lista = productos.map((e) => e.nombre);
   console.log(lista);
 }
 // listaNombres();
 
 function existe(name) {
-  let existe = Productos.some((e) => e.nombre == name);
+  let existe = productos.some((e) => e.nombre == name);
   if (existe == true) {
     console.log("Si, si está");
-    let mostrar = Productos.find((e) => e.nombre == name);
+    let mostrar = productos.find((e) => e.nombre == name);
     console.log(mostrar);
   } else {
     console.log("No se encuentra en inventario");
@@ -207,7 +208,48 @@ function existe(name) {
 // existe(prompt("ingrese nombre a ver si esta:"))
 
 function buscarProducto(a) {
-  let buscar = Productos.find((e) => e.nombre == a);
+  let buscar = productos.find((e) => e.nombre == a);
   console.log(buscar);
 }
 // buscarProducto("drubiio")
+
+
+
+
+
+
+const contenedorProducto = document.getElementById("contenedorProducto");
+const selector = document.getElementById("selector")
+
+selector.addEventListener("change", () => {
+
+  if (selector.value == "todos") {
+    console.log(selector.value);
+    mostrarProductos(productos)
+
+  }
+})
+
+mostrarProductos(productos)
+
+function mostrarProductos(x) {
+  contenedorProducto.innerHTML = "";
+  x.forEach(producto => {
+    let div = document.createElement("div");
+    div.innerHTML = `
+                    <div class="producto">
+                      <a class="producto__link" href="producto.html">
+                        <img class="producto__imagen" src="../../img/cuadros/${producto.id}.jpg" alt="${producto.nombre}">
+                      </a>
+                        <div class="producto__informacion">
+                          <p class="producto__nombre">${producto.nombre}</p>
+                          <p class="producto__descripcion">${producto.descripcion}</p>
+                          <p class="producto__precio">€${producto.precio}</p>
+                          <input class="producto__carrito--btn" type="button" value="Agregar al carrito">
+                        </div>
+    
+                    </div>
+    `
+    contenedorProducto.appendChild(div);
+  })
+}

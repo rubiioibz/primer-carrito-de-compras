@@ -8,26 +8,44 @@ $fuente-principal: 'Quicksand', sans-serif;
 $color_fondo : linear-gradient(45deg, #2a1e44 50% ,#0e4961 , #134738 );
 
 
-
 /*ESTILOS DE LA TIENDA*/
 
 .tituloTienda {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.452);
 }
 
+/*Main tienda*/
+.mainTienda {
+    display: grid;
+    grid-template-columns: 2fr auto;
+}
+
+/*Selector tienda*/
+.contenedorSelector {
+    padding: 1rem;
+}
+
+#selector {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: .5rem;
+}
+
+
+
+/*PRODUCTO*/
+
 .gridTienda {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     padding: 1rem ;
-    
 
     a {
         text-decoration: none;
     }
 }
-
-/*PRODUCTO*/
 
 .producto {
     margin: auto;
@@ -48,6 +66,11 @@ $color_fondo : linear-gradient(45deg, #2a1e44 50% ,#0e4961 , #134738 );
         text-align: center;
         line-height: 1.2;
         
+    }
+
+    .producto__descripcion {
+        color: black;
+        padding: .5rem;
     }
     
     .producto__nombre{

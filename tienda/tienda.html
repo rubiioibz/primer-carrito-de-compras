@@ -171,121 +171,139 @@
       </div>
     
     </div>
-
-    <main class="row justify-content-center text-light m-0">
-
-        <h1 class="text-warning text-center my-3 tituloTienda">Tienda</h1>
-
-        <div class="gridTienda col-9">
-            
-            <div class="producto">
-                <a class="producto__link" href="producto.html">
-                    <img class="producto__imagen" src="../../img/cuadros/6-min.jpg" alt="imagen camisa">
-                </a>
-                    <div class="producto__informacion">
-                        <p class="producto__nombre">"Rubiio Posca"</p>
-                        <p class="producto__precio">€100</p>
-                        <input class="producto__carrito--btn" type="button" value="Agregar al carrito">
-                    </div>
-                
-            </div>
     
-            <div class="producto">
+    <main>
+
+      <h1 id="titulo1" class="text-warning text-center my-3 tituloTienda">Tienda</h1>
+
+      <div class="mainTienda">
+
+        <div class="contenedorSelector">
+          <select name="selectorCategoria" id="selector">
+            <option value="todos">Todos</option>
+            <option value="menorPrecio">Menor precio a mayor</option>
+            <option value="mayorPrecio">Mayor precio a menor</option>
+            <option value="cuadrosGrandes">Cuadros grandes</option>
+          </select>
+        </div>
+  
+        <div class="text-light m-0">
+
+          <div id="contenedorProducto" class="gridTienda col-9 mx-auto">
+
+            <!--
+
+              <div class="producto">
+                  <a class="producto__link" href="producto.html">
+                      <img class="producto__imagen" src="../../img/cuadros/1.jpg" alt="imagen camisa">
+                  </a>
+                      <div class="producto__informacion">
+                          <p class="producto__nombre">"Rubiio Posca"</p>
+                          <p class="producto__precio">€100</p>
+                          <input class="producto__carrito--btn" type="button" value="Agregar al carrito">
+                      </div>
+                  
+              </div>
+      
+              <div class="producto">
+                  <a class="producto__link" href="producto.html">
+                      <img class="producto__imagen" src="../../img/cuadros/2.jpg" alt="imagen camisa">
+                    </a>
+                      <div class="producto__informacion">
+                          <p class="producto__nombre">"Drubiio"</p>
+                          <p class="producto__precio">€15</p>
+                          <input class="producto__carrito--btn" type="submit" value="Agregar al carrito">
+                      </div>
+                  
+              </div>
+      
+              <div class="producto">
+                  <a class="producto__link" href="producto.html">
+                      <img class="producto__imagen" src="../../img/cuadros/3.jpg" alt="imagen camisa">
+                    </a>
+                      <div class="producto__informacion">
+                          <p class="producto__nombre">"Mache"</p>
+                          <p class="producto__precio">€25</p>
+                          <input class="producto__carrito--btn" type="submit" value="Agregar al carrito">
+                      </div>
+                  
+              </div>
+      
+              <div class="producto">
+                  <a class="producto__link" href="producto.html">
+                      <img class="producto__imagen" src="../../img/cuadros/4.jpg" alt="imagen camisa">
+                    </a>
+                      <div class="producto__informacion">
+                          <p class="producto__nombre">"BartFall"</p>
+                          <p class="producto__precio">€25</p>
+                          <input class="producto__carrito--btn" type="submit" value="Agregar al carrito">
+                      </div>
+                  
+              </div>
+      
+              <div class="producto">
+                  <a class="producto__link" href="producto.html">
+                      <img class="producto__imagen" src="../../img/cuadros/5.jpg" alt="imagen camisa">
+                    </a>
+                      <div class="producto__informacion">
+                          <p class="producto__nombre">"Regular Show</p>
+                          <p class="producto__precio">€30</p>
+                          <input class="producto__carrito--btn" type="submit" value="Agregar al carrito">
+                      </div>
+                  
+              </div>
+      
+              <div class="producto">
+                  <a class="producto__link" href="producto.html">
+                      <img class="producto__imagen" src="../../img/cuadros/6.jpg" alt="imagen camisa">
+                    </a>
+                      <div class="producto__informacion">
+                          <p class="producto__nombre">"Setario</p>
+                          <p class="producto__precio">€60</p>
+                          <input class="producto__carrito--btn" type="submit" value="Agregar al carrito">
+                      </div>
+                  
+              </div>
+  
+              <div class="producto">
                 <a class="producto__link" href="producto.html">
                     <img class="producto__imagen" src="../../img/cuadros/7.jpg" alt="imagen camisa">
                   </a>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">"Drubiio"</p>
-                        <p class="producto__precio">€15</p>
+                        <p class="producto__nombre">"Capucha</p>
+                        <p class="producto__precio">€50</p>
                         <input class="producto__carrito--btn" type="submit" value="Agregar al carrito">
                     </div>
                 
             </div>
-    
-            <div class="producto">
-                <a class="producto__link" href="producto.html">
-                    <img class="producto__imagen" src="../../img/cuadros/9.jpg" alt="imagen camisa">
-                  </a>
-                    <div class="producto__informacion">
-                        <p class="producto__nombre">"Mache"</p>
-                        <p class="producto__precio">€25</p>
-                        <input class="producto__carrito--btn" type="submit" value="Agregar al carrito">
-                    </div>
-                
-            </div>
-    
-            <div class="producto">
-                <a class="producto__link" href="producto.html">
-                    <img class="producto__imagen" src="../../img/cuadros/10-min.jpg" alt="imagen camisa">
-                  </a>
-                    <div class="producto__informacion">
-                        <p class="producto__nombre">"BartFall"</p>
-                        <p class="producto__precio">€25</p>
-                        <input class="producto__carrito--btn" type="submit" value="Agregar al carrito">
-                    </div>
-                
-            </div>
-    
-            <div class="producto">
-                <a class="producto__link" href="producto.html">
-                    <img class="producto__imagen" src="../../img/cuadros/2-min.jpg" alt="imagen camisa">
-                  </a>
-                    <div class="producto__informacion">
-                        <p class="producto__nombre">"Regular Show</p>
-                        <p class="producto__precio">€30</p>
-                        <input class="producto__carrito--btn" type="submit" value="Agregar al carrito">
-                    </div>
-                
-            </div>
-    
-            <div class="producto">
-                <a class="producto__link" href="producto.html">
-                    <img class="producto__imagen" src="../../img/cuadros/3-min.jpg" alt="imagen camisa">
-                  </a>
-                    <div class="producto__informacion">
-                        <p class="producto__nombre">"Setario</p>
-                        <p class="producto__precio">€60</p>
-                        <input class="producto__carrito--btn" type="submit" value="Agregar al carrito">
-                    </div>
-                
-            </div>
-
+  
             <div class="producto">
               <a class="producto__link" href="producto.html">
-                  <img class="producto__imagen" src="../../img/cuadros/12.jpg" alt="imagen camisa">
+                  <img class="producto__imagen" src="../../img/cuadros/8.jpg" alt="imagen camisa">
                 </a>
                   <div class="producto__informacion">
-                      <p class="producto__nombre">"Capucha</p>
-                      <p class="producto__precio">€50</p>
+                      <p class="producto__nombre">"Verano verde</p>
+                      <p class="producto__precio">€35</p>
                       <input class="producto__carrito--btn" type="submit" value="Agregar al carrito">
                   </div>
               
-          </div>
-
-          <div class="producto">
-            <a class="producto__link" href="producto.html">
-                <img class="producto__imagen" src="../../img/cuadros/13.jpg" alt="imagen camisa">
-              </a>
-                <div class="producto__informacion">
-                    <p class="producto__nombre">"Verano verde</p>
-                    <p class="producto__precio">€35</p>
-                    <input class="producto__carrito--btn" type="submit" value="Agregar al carrito">
-                </div>
+            </div>
+  
+            <div class="producto">
+              <a class="producto__link" href="producto.html">
+                  <img class="producto__imagen" src="../../img/cuadros/9.jpg" alt="imagen camisa">
+                </a>
+                  <div class="producto__informacion">
+                      <p class="producto__nombre">"Letra R</p>
+                      <p class="producto__precio">€200</p>
+                      <input class="producto__carrito--btn" type="submit" value="Agregar al carrito">
+                  </div>
             
+            </div>
+        -->
+          </div> 
         </div>
-
-        <div class="producto">
-          <a class="producto__link" href="producto.html">
-              <img class="producto__imagen" src="../../img/cuadros/14.jpg" alt="imagen camisa">
-            </a>
-              <div class="producto__informacion">
-                  <p class="producto__nombre">"Letra R</p>
-                  <p class="producto__precio">€200</p>
-                  <input class="producto__carrito--btn" type="submit" value="Agregar al carrito">
-              </div>
-          
       </div>
-        </div>
     </main>
 
 
