@@ -126,6 +126,14 @@ optgroup {
   .bannerCompras .candado, .bannerCompras .caja {
     width: 100px; }
 
+.contenedorCarrito {
+  width: 100%;
+  background-color: black;
+  padding: 1rem;
+  text-align: center; }
+  .contenedorCarrito .tituloCarrito {
+    color: #2561e2; }
+
 /*ICONOS*/
 .fa-github {
   color: white;

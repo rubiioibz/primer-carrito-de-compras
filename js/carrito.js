@@ -2,83 +2,9 @@
 
 const carritoDeCompras = [];
 
-
-
-//AGREGAR PRODUCTOS AL CARRITO
-function agregarAlCarrito() {
-  let elijoProducto = parseInt(prompt("ingrese el ID de su producto:"));
-
-  let productoAgregar = productos.find((e) => e.id == elijoProducto);
-  carritoDeCompras.push(productoAgregar);
-  console.log(carritoDeCompras);
-  console.log("Has agregado " + productoAgregar.nombre + " al carrito.");
-  actualizarCarrito();
-}
-// agregarAlCarrito();
-
-function actualizarCarrito() {
-  console.log(
-    "cantidad de productos agregados al carrito: " + carritoDeCompras.length
-  );
-  let suma = carritoDeCompras.reduce((acc, e) => acc + e.precio, 0);
-
-  console.log("la suma total de su Carrito es $" + suma);
-}
-
-function filtroPrecio(num) {
-  let filtro = productos.filter((e) => e.precio <= num);
-  if (productos.some((e) => e.precio <= num)) {
-    console.log(filtro);
-    console.log("Hay " + filtro.length + " productos de €" + num + " o menos.");
-  } else {
-    console.log("no hay productos de €" + num + " o menos.");
-  }
-}
-// filtroPrecio(Number(prompt("ingrese numero:")));
-
-function filtroNombre(letras) {
-  let filtroName = productos.filter((e) => e.nombre.includes(letras));
-  if (productos.some((e) => e.nombre != letras)) {
-    console.log(filtroName);
-  } else {
-    console.log("No es una letra");
-  }
-}
-// filtroNombre(prompt("ingrese letra:"))
-
-function listaNombres() {
-  let lista = productos.map((e) => e.nombre);
-  console.log(lista);
-}
-// listaNombres();
-
-function existe(name) {
-  let existe = productos.some((e) => e.nombre == name);
-  if (existe == true) {
-    console.log("Si, si está");
-    let mostrar = productos.find((e) => e.nombre == name);
-    console.log(mostrar);
-  } else {
-    console.log("No se encuentra en inventario");
-  }
-}
-// existe(prompt("ingrese nombre a ver si esta:"))
-
-function buscarProducto(a) {
-  let buscar = productos.find((e) => e.nombre == a);
-  console.log(buscar);
-}
-// buscarProducto("drubiio")
-
-
-
-
-
-
-
-
 const contenedorProducto = document.getElementById("contenedorProducto");
 const selector = document.getElementById("selector")
+
 
 selector.addEventListener("change", () => {
 
@@ -121,9 +47,9 @@ function mostrarProductos(x) {
   contenedorProducto.innerHTML = "";
   x.forEach(producto => {
     let div = document.createElement("div");
-    div.innerHTML = `
+    div.innerHTML += `
                     <div class="producto">
-                    <p class="producto__nombre">${producto.nombre}</p>
+                      <h2 class="producto__nombre">${producto.nombre}</h2>
                       <a class="producto__link" href="producto.html">
                         <img class="producto__imagen" src="../../img/cuadros/${producto.id}.jpg" alt="${producto.nombre}">
                       </a>
@@ -131,7 +57,7 @@ function mostrarProductos(x) {
                           
                           <p class="producto__descripcion">${producto.descripcion}</p>
                           <p class="producto__precio">€${producto.precio}</p>
-                          <input class="producto__carrito--btn" type="button" value="Agregar al carrito">
+                          <button id="${producto.id}" class="producto__carrito--btn" type="button">Agregar al carrito</button>
                         </div>
     
                     </div>
@@ -139,3 +65,86 @@ function mostrarProductos(x) {
     contenedorProducto.appendChild(div);
   })
 }
+
+
+
+const botonesAgregarAlCarrito = document.getElementsByClassName("producto__carrito--btn");
+const carrito = document.querySelector(".elCarrito");
+
+for(botonAgregar of botonesAgregarAlCarrito){
+  botonAgregar.addEventListener("click", agregarAlCarritoClicked);
+};
+
+function agregarAlCarritoClicked(event){
+  const boton = event.target
+  const producto = boton.closest(".producto");
+
+  const tituloProducto = producto.querySelector(".producto__nombre").textContent;
+  const precioProducto = producto.querySelector(".producto__precio").textContent;
+  const imgProducto = producto.querySelector(".producto__imagen").src;
+  const descripcionProducto = producto.querySelector(".producto__descripcion").textContent;
+  
+  agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripcionProducto)
+}
+
+function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripcionProducto) {
+  const carritoFlotante = document.createElement("div");
+  const carritoFlotanteContenido = `
+  <div class="card rounded-3 mb-4 productoCarrito">
+              <div class="card-body p-4">
+                <div class="row d-flex justify-content-between align-items-center">
+                  <div class="col-md-2 col-lg-2 col-xl-2">
+                    <img src="${imgProducto}"
+                      class="img-fluid rounded-3" alt="#">
+                  </div>
+                  <div class="col-md-3 col-lg-3 col-xl-3">
+                    <p class="lead fw-normal mb-2">${tituloProducto}</p>
+                    <p><span class="">${descripcionProducto}</span></p>
+                  </div>
+                  <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                    <button class="btn btn-link px-2"
+                      onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                      <i class="fas fa-minus"></i>
+                    </button>
+    
+                    <input id="form1" min="0" name="quantity" value="1" type="number"
+                      class="form-control form-control-sm" />
+    
+                    <button class="btn btn-link px-2"
+                      onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                      <i class="fas fa-plus"></i>
+                    </button>
+                  </div>
+                  <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1 precioCarrito">
+                    <h5 class="mb-0">${precioProducto}</h5>
+                  </div>
+                  <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                    <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  `
+
+  carritoFlotante.innerHTML += carritoFlotanteContenido
+  carrito.append(carritoFlotante)
+  
+  //actualizarCarrito()
+}
+
+function sumaCarrito(){
+  let suma = carritoDeCompras.reduce((acc, e) => acc + e.precio, 0);
+  return suma;
+}
+
+
+ /*
+function actualizarCarrito() {
+  let total = 0;
+  const totalCarrito = document.getElementById("total").textContent;
+  const itemsCarrito = document.getElementsByClassName("productoCarrito");
+ 
+  //DEJE ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA, NOSE SI VA FOR OF, .FOREACH O QUE MIERDA, HAY QUE HACER ITERAR SOBRE ITEMSCARRITO 
+
+}
+*/
