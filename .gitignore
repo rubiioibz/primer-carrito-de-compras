@@ -1,5 +1,7 @@
-#ignorar archivo pruebas.js
+#ignorar archivos js
 pruebas.js
+tienda.js
+login.js
 
 # Ignorar la carpeta node_modules
 node_modules

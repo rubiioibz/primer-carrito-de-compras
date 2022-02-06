@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="icon" href="../img/logo-no-fondo.png" type="image/x-icon" />
+
+    <title>Rubiio - Tienda</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,10 +36,11 @@
     />
     <meta name="description" content="Tienda de Arte de Rubiio" />
 
-    <title>Rubiio - Tienda</title>
   </head>
+
   <body>
-    <!--MENU-->
+
+    <!--NAVEGADOR-->
     <header class="sticky-top">
       <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark py-0">
         <div class="container-fluid">
@@ -136,40 +140,7 @@
       </nav>
     </header>
 
-    <div class="row bannerCompras m-0">
-      <div
-        class="col-sm-12 col-md-3 preContenedorCompras animate__animated animate__bounceInLeft animate__slow"
-      >
-        <div class="contenedorCompras">
-          <div class="candado">
-            <i class="fas fa-lock fa-5x"></i>
-          </div>
-
-          <div class="seguras">
-            <h4>Realiza tus compras<br />100 % Seguras</h4>
-            <p>PayPal y tarjeta de crédito Visa o Mastercard</p>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="col-sm-12 col-md-3 preContenedorEnvios animate__animated animate__bounceInRight animate__slow"
-      >
-        <div class="contenedorEnvios">
-          <div class="caja">
-            <i class="fas fa-box-open fa-5x"></i>
-          </div>
-
-          <div class="horas">
-            <h4>Envíos seguros y<br />en 24 horas</h4>
-            <p>
-              Gracias a Correos Express y Correos certificado, con extra de
-              protección
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    
 
 
     <main>
@@ -177,13 +148,13 @@
         Tienda
       </h1>
 
-      <section class="h-100" style="background-color: rgb(0, 0, 0);">
+      <section class="h-100 carritoContenedor">
         <div class="container h-100 py-5">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-10">
       
               <div class="d-flex justify-content-between align-items-center mb-4">
-                <h3 class="fw-normal mb-0 text-black">Tu carrito</h3>
+                <h3 class="fw-normal mb-0 text-black fw-bold">Tu carrito</h3>
               </div>
   
               <div class="elCarrito">
@@ -192,13 +163,12 @@
                   Carrito fila
           
                 -->
-                
               </div>
       
               <div class="card">
-                <div class="card-body row">
-                  <button type="button" class="btn btn-warning btn-block btn-lg">Comprar</button>
-                  <p>Total: <span id="total">$0</span></p>
+                <div class="card-body m-auto text-center">
+                  <button type="button" class="btn btn-warning btn-block btn-lg btnComprar">Comprar</button>
+                  <p class="p-4 m-auto totalContenedor">Total: <span class="total">€0,00</span></p>
                 </div>
               </div>
       
@@ -235,11 +205,46 @@
           </div>
         </div>
       </div>
+
+      <div class="row bannerCompras m-0">
+        <div
+          class="col-sm-12 col-md-3 preContenedorCompras animate__animated animate__bounceInLeft animate__slow"
+        >
+          <div class="contenedorCompras">
+            <div class="candado">
+              <i class="fas fa-lock fa-5x"></i>
+            </div>
+  
+            <div class="seguras">
+              <h4>Realiza tus compras<br />100 % Seguras</h4>
+              <p>PayPal y tarjeta de crédito Visa o Mastercard</p>
+            </div>
+          </div>
+        </div>
+  
+        <div
+          class="col-sm-12 col-md-3 preContenedorEnvios animate__animated animate__bounceInRight animate__slow"
+        >
+          <div class="contenedorEnvios">
+            <div class="caja">
+              <i class="fas fa-box-open fa-5x"></i>
+            </div>
+  
+            <div class="horas">
+              <h4>Envíos seguros y<br />en 24 horas</h4>
+              <p>
+                Gracias a Correos Express y Correos certificado, con extra de
+                protección
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     
 
-    <footer class="pt-4">
+    <footer class="pt-0">
       <div class="prefooter container-fluid text-light">
         <div class="logo2">
           <img src="../img/logo-2.png" alt="logo2" />
@@ -286,6 +291,7 @@
       crossorigin="anonymous"
     ></script>
 
+    <!--Bootstrap-->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
       integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
@@ -297,8 +303,5 @@
       crossorigin="anonymous"
     ></script>
   </body>
-
-
-  
 
 </html>
