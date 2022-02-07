@@ -5,6 +5,7 @@ const selector = document.getElementById("selector")
 const botonesAgregarAlCarrito = document.getElementsByClassName("producto__carrito--btn");
 const carrito = document.querySelector(".elCarrito");
 const botonComprar = document.querySelector(".btnComprar");
+const botonVaciarCarrito = document.querySelector(".btnVaciar");
 
 mostrarProductos(productos)
 
@@ -69,7 +70,7 @@ selector.addEventListener("change", () => {
 
 
 
-for (botonAgregar of botonesAgregarAlCarrito){
+for (const botonAgregar of botonesAgregarAlCarrito){
   botonAgregar.addEventListener("click", agregarAlCarritoClick);
 };
 
@@ -201,6 +202,9 @@ function botonComprarClick() {
   alert("Gracias por su compra =)")
   carrito.innerHTML = "";
   actualizarCarrito();
-
 }
+
+botonVaciarCarrito.addEventListener("click", () => {
+  carrito.innerHTML = "";
+  actualizarCarrito()})
 

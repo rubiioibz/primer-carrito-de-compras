@@ -38,10 +38,16 @@ optgroup {
     text-align: start;
 }
 
+.contenedorImg {
+    position: sticky;
+    top: 7rem;
+}
+
 .imgSelector {
     padding: 1rem;
     margin-top: 1rem;
-    border-radius: 4rem;
+    position: top sticky;
+    border: white .1rem solid;
 }
 
 
@@ -193,7 +199,7 @@ optgroup {
 }
 
 .totalContenedor {
-    color: red;
+    color: rgb(218, 72, 72);
     font-size: 1.3rem;
 }
 
