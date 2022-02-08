@@ -10,6 +10,15 @@ $color_fondo : linear-gradient(45deg, #2a1e44 50% ,#0e4961 , #134738 );
 
 /*ESTILOS DE LA TIENDA*/
 
+.linkContadorCarrito {
+    text-decoration: none;
+}
+
+#contadorCarrito {
+    color: $amarillo-rubiio;
+    font-size: 18px;
+}
+
 .tituloTienda {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.452);
 }

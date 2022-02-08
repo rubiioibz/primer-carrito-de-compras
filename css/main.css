@@ -4,6 +4,13 @@
   box-sizing: border-box; }
 
 /*ESTILOS DE LA TIENDA*/
+.linkContadorCarrito {
+  text-decoration: none; }
+
+#contadorCarrito {
+  color: #f0cc04;
+  font-size: 18px; }
+
 .tituloTienda {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.452); }
 
@@ -166,11 +173,11 @@ optgroup {
   color: #f0cc03; }
 
 .fa-shopping-cart {
-  color: white;
+  color: #f0cc03;
   font-size: 24px; }
 
 .fa-shopping-cart:hover {
-  color: #f0cc03; }
+  color: white; }
 
 .fa-home {
   font-size: 20px; }
