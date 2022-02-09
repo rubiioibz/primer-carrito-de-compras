@@ -43,6 +43,16 @@ $color_fondo : linear-gradient(45deg, #2a1e44 50% ,#0e4961 , #134738 );
     border-radius: .5rem;
 }
 
+.busqueda {
+    padding: .5rem;
+    margin-top: 1rem;
+    border-radius: .5rem;
+
+    &::placeholder {
+        color: rgb(147, 148, 147);
+    }
+}
+
 optgroup {
     text-align: start;
 }

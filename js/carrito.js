@@ -1,4 +1,4 @@
-/* TIENDA ******************************************************************************/
+/*/////////////////////////////////////////// TIENDA /////////////////////////////////////////*/ 
 
 let carritoArray = []
 
@@ -12,8 +12,12 @@ const carrito = document.querySelector(".elCarrito");
 const botonComprar = document.querySelector(".btnComprar");
 const botonVaciarCarrito = document.querySelector(".btnVaciar");
 
+const busqueda = document.querySelector(".busqueda");
 
-//filtro
+/*/////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////// FILTRO /////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////*/
+
 selector.addEventListener("change", () => {
 
   if (selector.value == "todos") {
@@ -48,8 +52,22 @@ selector.addEventListener("change", () => {
   }
 })
 
+/*/////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////// BUSCADOR ///////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////*/
 
-//Ecommerce
+busqueda.addEventListener("input", () => {
+  if (busqueda.value == ""){
+    mostrarProductos(productos)
+  }else {
+      mostrarProductos(productos.filter(e => e.nombre.toLowerCase().includes(busqueda.value.toLowerCase())))
+    }
+})
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////// ECOMMERCE /////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////*/
+
 mostrarProductos(productos)
 
 function mostrarProductos(array) {
@@ -92,6 +110,11 @@ function agregarAlCarritoClick(e){
   
   agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripcionProducto)
 }
+
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////// AGREGAR AL CARRITO ///////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////*/
 
 function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripcionProducto) {
 
@@ -175,6 +198,10 @@ function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripc
 }
  
 
+
+
+/*//////////////////////////////////// ACTUALIZAR CARRITO  ////////////////////////////////////////*/
+
 function actualizarCarrito() {
 
   let total = 0;
@@ -224,8 +251,10 @@ botonComprar.addEventListener("click", botonComprarClick)
 
 function botonComprarClick() {
   alert("Gracias por su compra =)")
+  carritoArray = []
   carrito.innerHTML = "";
   actualizarCarrito();
+  localStorage.clear()
 }
 
 botonVaciarCarrito.addEventListener("click", () => {
@@ -233,20 +262,20 @@ botonVaciarCarrito.addEventListener("click", () => {
   carritoArray = []
   actualizarCarrito()
   localStorage.clear()
-    console.log(carritoArray);
 })
-  
 
-  // function recuperar() {
-  //   let recuperarLS = JSON.parse(localStorage.getItem("carrito"));
-  //   console.log(recuperarLS);
-  //   if (recuperarLS){
-  //     recuperarLS.forEach(e => {
-        
-  //     })
-  //   }
-  // }
+/*/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////// RECUPERAR LS ///////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////*/
 
-  // recuperar()
+  function recuperar (){
+    let recuperoLocalStorage = JSON.parse(localStorage.getItem("carrito"));
+    if (recuperoLocalStorage){
+      recuperoLocalStorage.forEach(e => {
+        agregarAlCarrito(e.nombre, e.precio, e.img, e.descripcion)
+      })
+    }
+  }
 
+  recuperar()
 

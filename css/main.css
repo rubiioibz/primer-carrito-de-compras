@@ -30,6 +30,13 @@
   padding: .5rem;
   border-radius: .5rem; }
 
+.busqueda {
+  padding: .5rem;
+  margin-top: 1rem;
+  border-radius: .5rem; }
+  .busqueda::placeholder {
+    color: #939493; }
+
 optgroup {
   text-align: start; }
 
