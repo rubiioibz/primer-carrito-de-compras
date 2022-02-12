@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -35,13 +34,12 @@
       content="graffiti, rubiio, ibiza, tienda, comprar, vender, arte, artista"
     />
     <meta name="description" content="Tienda de Arte de Rubiio" />
-
   </head>
 
   <body>
-
     <!--NAVEGADOR-->
     <header class="sticky-top">
+
       <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark py-0">
         <div class="container-fluid">
           <a class="navbar-brand" href="../../index.html"
@@ -133,30 +131,55 @@
                 ><i class="fab fa-instagram mx-2"></i
               ></a>
 
-              <a class="linkContadorCarrito" href="#"><i class="fas fa-shopping-cart mx-2"></i><span id="contadorCarrito">0</span></a>
+              <a
+                class="linkContadorCarrito"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasTop"
+                aria-controls="offcanvasTop"
+                href="#"
+                ><i class="fas fa-shopping-cart mx-2 position-relative"></i
+                ><span
+                  id="contadorCarrito"
+                  class="top-0 start-100 translate-middle badge border border-light rounded-circle bg-primary"
+                >
+                  0
+                </span></a
+              >
             </div>
           </div>
         </div>
       </nav>
     </header>
 
-    
-
-
     <main>
+      
+      <div class="alert alert-primary m-0 hide sticky-top p-4 text-center" role="alert">
+        Producto agregado al carrito !
+      </div>
+
       <h1 id="titulo1" class="text-warning text-center my-3 tituloTienda">
         Tienda
       </h1>
 
-      <section class="h-100 carritoContenedor">
-        <div class="container h-100 py-5">
-          <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-10">
+      <section
+        class="h-100 carritoContenedor offcanvas offcanvas-top p-4"
+        tabindex="-1"
+        id="offcanvasTop"
+        aria-labelledby="offcanvasTopLabel"
+      >
       
-              <div class="d-flex justify-content-between align-items-center mb-4">
+        <div id="offcanvasTopLabel" class="container-fluid h-100 py-5 offCanvasMio">
+          <button type="button" class="btn-close text-reset mt-4" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <div
+            class="row d-flex justify-content-center align-items-center h-100"
+          >
+            <div class="col-10">
+              <div
+                class="d-flex justify-content-between mb-4"
+              >
                 <h3 class="fw-normal mb-0 text-black fw-bold">Tu carrito</h3>
               </div>
-  
+
               <div class="elCarrito">
                 <!--
           
@@ -164,15 +187,26 @@
           
                 -->
               </div>
-      
+
               <div class="card">
                 <div class="card-body m-auto text-center">
-                  <button type="button" class="btn btn-warning btn-block btn-lg btnComprar">Comprar</button>
-                  <button type="button" class="btn btn-secondary btn-block btn-lg btnVaciar">Vaciar Carrito</button>
-                  <p class="p-4 m-auto totalContenedor">Total: <span class="total">€0,00</span></p>
+                  <button
+                    type="button"
+                    class="btn btn-warning btn-block btn-lg btnComprar"
+                  >
+                    Comprar
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary btn-block btn-lg btnVaciar"
+                  >
+                    Vaciar Carrito
+                  </button>
+                  <p class="p-4 m-auto totalContenedor">
+                    Total: <span class="total">€0,00</span>
+                  </p>
                 </div>
               </div>
-      
             </div>
           </div>
         </div>
@@ -191,11 +225,12 @@
             </optgroup>
           </select>
 
-          <input class="busqueda" placeholder="Filtrar por nombre" type="text">
+          <input
+            class="busqueda"
+            placeholder="Filtrar por nombre"
+            type="text"
+          />
 
-          <div class="contenedorImg">
-            <img class="img-fluid imgSelector" src="/img/cuadros/sad.jpg" alt="">
-          </div>
         </div>
 
         <div class="text-light m-0">
@@ -217,14 +252,14 @@
             <div class="candado">
               <i class="fas fa-lock fa-5x"></i>
             </div>
-  
+
             <div class="seguras">
               <h4>Realiza tus compras<br />100 % Seguras</h4>
               <p>PayPal y tarjeta de crédito Visa o Mastercard</p>
             </div>
           </div>
         </div>
-  
+
         <div
           class="col-sm-12 col-md-3 preContenedorEnvios animate__animated animate__bounceInRight animate__slow"
         >
@@ -232,7 +267,7 @@
             <div class="caja">
               <i class="fas fa-box-open fa-5x"></i>
             </div>
-  
+
             <div class="horas">
               <h4>Envíos seguros y<br />en 24 horas</h4>
               <p>
@@ -244,8 +279,6 @@
         </div>
       </div>
     </main>
-
-    
 
     <footer class="pt-0">
       <div class="prefooter container-fluid text-light">
@@ -306,5 +339,4 @@
       crossorigin="anonymous"
     ></script>
   </body>
-
 </html>

@@ -14,6 +14,8 @@ const botonVaciarCarrito = document.querySelector(".btnVaciar");
 
 const busqueda = document.querySelector(".busqueda");
 
+const alertProductoAgregado = document.querySelector(".hide");
+
 /*/////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////// FILTRO /////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -57,6 +59,7 @@ selector.addEventListener("change", () => {
 ////////////////////////////////////////////////////////////////////////////////////////////*/
 
 busqueda.addEventListener("input", () => {
+  
   if (busqueda.value == ""){
     mostrarProductos(productos)
   }else {
@@ -107,7 +110,16 @@ function agregarAlCarritoClick(e){
   const precioProducto = producto.querySelector(".producto__precio").textContent;
   const imgProducto = producto.querySelector(".producto__imagen").src;
   const descripcionProducto = producto.querySelector(".producto__descripcion").textContent;
+
+  //alert producto agregado al carrito
+  alertProductoAgregado.classList.remove('hide');
+  setTimeout(alert, 2000)
+
+  function alert(){
+    alertProductoAgregado.classList.add('hide')
+  }
   
+
   agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripcionProducto)
 }
 
@@ -142,7 +154,7 @@ function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripc
                       class="img-fluid rounded-3" alt="#">
                   </div>
                   <div class="col-md-3 col-lg-3 col-xl-3">
-                    <p class="lead fw-normal mb-2 tituloProducto">${tituloProducto}</p>
+                    <p class="lead fw-normal mb-2 tituloProducto">${tituloProducto.toUpperCase()}</p>
                     <p><span class="">${descripcionProducto}</span></p>
                   </div>
                   <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
@@ -198,9 +210,9 @@ function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripc
 }
  
 
-
-
-/*//////////////////////////////////// ACTUALIZAR CARRITO  ////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////// ACTUALIZAR CARRITO ///////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////*/
 
 function actualizarCarrito() {
 
