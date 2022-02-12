@@ -100,6 +100,7 @@ function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripc
   for (let i = 0; i < titulo.length; i++) {
     if (titulo[i].innerHTML === tituloProducto){
       let cantidadElemento = titulo[i].parentElement.parentElement.parentElement.querySelector(".cantidadItemCarrito");
+      console.log(titulo[i].parentElement.parentElement.parentElement.querySelector(".cantidadItemCarrito"));
       cantidadElemento.value++;
       actualizarCarrito()
       return;
