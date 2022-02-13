@@ -117,8 +117,13 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="../contacto.html"
+                <a class="nav-link" href="../contacto.html"
                   ><i class="far fa-address-card mx-1"></i>Contacto</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="../tienda/tienda.html"
+                  ><i class="fa-solid fa-store mx-1"></i>Tienda</a
                 >
               </li>
             </ul>
@@ -140,7 +145,7 @@
                 ><i class="fas fa-shopping-cart mx-2 position-relative"></i
                 ><span
                   id="contadorCarrito"
-                  class="top-0 start-100 translate-middle badge border border-light rounded-circle bg-primary"
+                  class="top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger"
                 >
                   0
                 </span></a
@@ -152,24 +157,25 @@
     </header>
 
     <main>
-      
-      <div class="alert alert-primary m-0 hide sticky-top p-4 text-center" role="alert">
-        Producto agregado al carrito !
+      <!--ALERT DE COMPRA REALIZADA-->
+      <div class="alert alert-warning m-0 hide sticky-top p-4 text-center" role="alert">
+        <span></span>
       </div>
 
       <h1 id="titulo1" class="text-warning text-center my-3 tituloTienda">
         Tienda
       </h1>
 
+      <!--CONTENEDOR CARRITO-->
       <section
-        class="h-100 carritoContenedor offcanvas offcanvas-top p-4"
+        class="h-75 carritoContenedor offcanvas offcanvas-top p-1"
         tabindex="-1"
         id="offcanvasTop"
         aria-labelledby="offcanvasTopLabel"
       >
-      
-        <div id="offcanvasTopLabel" class="container-fluid h-100 py-5 offCanvasMio">
-          <button type="button" class="btn-close text-reset mt-4" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <!--CARRITO OFF-CANVAS-->
+        <div id="offcanvasTopLabel" class="container-fluid h-100 p-4 offCanvasMio">
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           <div
             class="row d-flex justify-content-center align-items-center h-100"
           >
@@ -177,7 +183,7 @@
               <div
                 class="d-flex justify-content-between mb-4"
               >
-                <h3 class="fw-normal mb-0 text-black fw-bold">Tu carrito</h3>
+                <h3 class="l mb-0 text-black fw-bold m-auto">Tu carrito</h3>
               </div>
 
               <div class="elCarrito">
@@ -192,13 +198,13 @@
                 <div class="card-body m-auto text-center">
                   <button
                     type="button"
-                    class="btn btn-warning btn-block btn-lg btnComprar"
+                    class="btn btn-warning btn-block btn-lg btnComprar shadow"
                   >
                     Comprar
                   </button>
                   <button
                     type="button"
-                    class="btn btn-secondary btn-block btn-lg btnVaciar"
+                    class="btn btn-secondary btn-block btn-lg btnVaciar shadow"
                   >
                     Vaciar Carrito
                   </button>
@@ -212,8 +218,11 @@
         </div>
       </section>
 
-      <div class="mainTienda">
-        <div class="contenedorSelector">
+      <!--CONTENEDOR DE SELECTOR Y BUSQUEDA-->
+      <div class="mainTienda mx-auto">
+
+        <!--FILTRO DE BUSQUEDA-->
+        <div class="contenedorSelector mx-auto shadow-lg">
           <select name="selectorCategoria" id="selector">
             <option value="todos">Todos</option>
             <option value="menorPrecio">Menor precio a mayor</option>
@@ -225,8 +234,9 @@
             </optgroup>
           </select>
 
+          <!--BUSCADOR-->
           <input
-            class="busqueda"
+            class="busqueda mx-2"
             placeholder="Filtrar por nombre"
             type="text"
           />
@@ -244,6 +254,8 @@
         </div>
       </div>
 
+      
+      <!--BANNER COMPRAS-->
       <div class="row bannerCompras m-0">
         <div
           class="col-sm-12 col-md-3 preContenedorCompras animate__animated animate__bounceInLeft animate__slow"

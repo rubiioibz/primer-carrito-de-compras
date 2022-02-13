@@ -102,6 +102,8 @@ function mostrarProductos(array) {
 }
 
 
+//////////////////////////////////// AGREGAR AL CARRITO CLICK ///////////////////////////////////////
+
 function agregarAlCarritoClick(e){
   const boton = e.target
   const producto = boton.closest(".producto");
@@ -110,9 +112,10 @@ function agregarAlCarritoClick(e){
   const precioProducto = producto.querySelector(".producto__precio").textContent;
   const imgProducto = producto.querySelector(".producto__imagen").src;
   const descripcionProducto = producto.querySelector(".producto__descripcion").textContent;
-
-  //alert producto agregado al carrito
+  
   alertProductoAgregado.classList.remove('hide');
+  alertProductoAgregado.classList.add("textoAlertAgregado")
+  alertProductoAgregado.textContent = `Producto agregado! Tienes ${carritoArray.length +1} productos en el carrito.`
   setTimeout(alert, 2000)
 
   function alert(){
@@ -134,9 +137,14 @@ function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripc
 
   for (let i = 0; i < titulo.length; i++) {
     if (titulo[i].innerHTML === tituloProducto){
+
       let cantidadElemento = titulo[i].parentElement.parentElement.parentElement.querySelector(".cantidadItemCarrito");
+  
       cantidadElemento.value++;
+      let repetido = carritoArray.find(e => e.nombre == tituloProducto);
+      carritoArray.push(repetido)
       actualizarCarrito()
+      localStorage.setItem("carrito", JSON.stringify(carritoArray));
       return;
     }
   }
@@ -146,7 +154,7 @@ function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripc
 
   const carritoFlotante = document.createElement("div");
   const carritoFlotanteContenido = `
-  <div class="card rounded-3 mb-4 productoCarrito">
+  <div class="card rounded-3 mb-4 productoCarrito shadow bg-light">
               <div class="card-body p-4">
                 <div class="row d-flex justify-content-between align-items-center">
                   <div class="col-md-2 col-lg-2 col-xl-2">
@@ -154,7 +162,7 @@ function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripc
                       class="img-fluid rounded-3" alt="#">
                   </div>
                   <div class="col-md-3 col-lg-3 col-xl-3">
-                    <p class="lead fw-normal mb-2 tituloProducto">${tituloProducto.toUpperCase()}</p>
+                    <p class="lead fw-normal mb-2 tituloProducto">${tituloProducto}</p>
                     <p><span class="">${descripcionProducto}</span></p>
                   </div>
                   <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
@@ -198,9 +206,7 @@ function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripc
   });
   
   carritoFlotante.querySelector(".cantidadItemCarrito").addEventListener("change", cantidadItemCarrito);
-
   carritoFlotante.querySelector(".botonMas").addEventListener("click", subeCantidad);
-
   carritoFlotante.querySelector(".botonMenos").addEventListener("click", bajaCantidad);
 
   actualizarCarrito()
@@ -235,11 +241,8 @@ function actualizarCarrito() {
     }
   });
 
-
   contadorCarrito.innerText = cantidadTotal;
   totalCarrito.innerHTML = `€${total.toFixed(2)}`;
-
-  
 }
 
 
@@ -290,4 +293,17 @@ botonVaciarCarrito.addEventListener("click", () => {
   }
 
   recuperar()
+
+
+
+
+/*
+
+  errores que encuentro:
+
+  - Al subir o bajar cantidad de itemes en el carrito, no se agregan a carritoArray ni se guarda en 
+    localStorage 
+
+
+  */
 
