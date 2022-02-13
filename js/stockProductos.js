@@ -1,49 +1,5 @@
-//CLASES
-class Producto {
-    constructor(id, nombre, tipo, descripcion, medidas, stock, precio, img) {
-      this.id = id;
-      this.nombre = nombre.toUpperCase();
-      this.tipo = tipo;
-      this.descripcion = descripcion;
-      this.medidas = medidas;
-      this.stock = stock;
-      this.precio = parseFloat(precio);
-      this.img = img;
-      this.vendido = false;
-    }
-  
-    sumarIva() {
-      this.precio = this.precio * 1.21;
-      console.log(
-        "El precio de " +
-          this.nombre +
-          " con IVA incluido es de: € " +
-          this.precio
-      );
-    }
-  
-    vender(cantidad) {
-      if (this.stock > cantidad) {
-        this.stock = this.stock - cantidad;
-        console.log("Quedan " + this.stock + " unidades");
-      } else {
-        console.log("No quedan mas unidades de " + this.nombre + " en stock");
-        this.vendido = true;
-      }
-    }
-  
-    mostrar() {
-      console.log("ID: " + this.id);
-      console.log("Nombre: " + this.nombre);
-      console.log("Tipo: " + this.tipo);
-      console.log("Descripcion: " + this.descripcion);
-      console.log("Medidas: " + this.medidas);
-      console.log("Stock: " + this.stock);
-      console.log("Precio: € " + this.precio);
-      console.log("vendido: " + this.vendido);
-    }
-  }
-  
+/*/////////////////////////////////////////// PRODUCTOS /////////////////////////////////////////*/ 
+
   const productos = [
     { 
       id: 1,
@@ -155,21 +111,63 @@ class Producto {
         precio: 10,
         img : "/img/cuadros/11.jpg",
       },
+      {
+        id: 12,
+        nombre: "tomy y daly",
+        tipo: "cuadro",
+        descripcion: "Cuadro realizado en madera con pintura acrilica.",
+        medidas: "medium",
+        stock: 1,
+        precio: 40,
+        img : "/img/cuadros/12.jpg",
+      },
   ];
   
-  function nuevoProducto() {
-    productos.push(
-      new Producto(
-        Number(prompt("Ingrese ID de nuevo producto: ")),
-        prompt("Ingrese nombre de nuevo producto: "),
-        prompt("Ingrese que tipo de producto es: "),
-        prompt("Ingrese descripcion del nuevo producto: "),
-        prompt("Ingrese medidas del nuevo producto: "),
-        Number(
-          prompt("Ingrese cantidad de Stock disponible de nuevo producto: ")
-        ),
-        prompt("ingrese precio del nuevo producto"),
-        (this.vendido = false)
-      )
+
+  /*/////////////////////////////////////////// CLASE /////////////////////////////////////////*/ 
+class Producto {
+  constructor(id, nombre, tipo, descripcion, medidas, stock, precio, img) {
+    this.id = id;
+    this.nombre = nombre.toUpperCase();
+    this.tipo = tipo;
+    this.descripcion = descripcion;
+    this.medidas = medidas;
+    this.stock = stock;
+    this.precio = parseFloat(precio);
+    this.img = img;
+    this.vendido = false;
+  }
+
+  sumarIva() {
+    this.precio = this.precio * 1.21;
+    console.log(
+      "El precio de " +
+        this.nombre +
+        " con IVA incluido es de: € " +
+        this.precio
     );
   }
+
+  vender(cantidad) {
+    if (this.stock > cantidad) {
+      this.stock = this.stock - cantidad;
+      console.log("Quedan " + this.stock + " unidades");
+    } else {
+      console.log("No quedan mas unidades de " + this.nombre + " en stock");
+      this.vendido = true;
+    }
+  }
+
+  mostrar() {
+    console.log("ID: " + this.id);
+    console.log("Nombre: " + this.nombre);
+    console.log("Tipo: " + this.tipo);
+    console.log("Descripcion: " + this.descripcion);
+    console.log("Medidas: " + this.medidas);
+    console.log("Stock: " + this.stock);
+    console.log("Precio: € " + this.precio);
+    console.log("vendido: " + this.vendido);
+  }
+}
+
+  

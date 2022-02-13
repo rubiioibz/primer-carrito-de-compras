@@ -105,6 +105,16 @@ function mostrarProductos(array) {
 
 }
 
+function alertProductoAgregadoCarrito() {
+  alertProductoAgregado.classList.remove('hide');
+  alertProductoAgregado.classList.add("textoAlertAgregado")
+  alertProductoAgregado.textContent = `Producto agregado! Tienes ${carritoArray.length} productos en el carrito.`
+  setTimeout(alert, 2000)
+
+  function alert(){
+    alertProductoAgregado.classList.add('hide')
+  }
+}
 
 //////////////////////////////////// AGREGAR AL CARRITO CLICK ///////////////////////////////////////
 
@@ -117,17 +127,9 @@ function agregarAlCarritoClick(e){
   const imgProducto = producto.querySelector(".producto__imagen").src;
   const descripcionProducto = producto.querySelector(".producto__descripcion").textContent;
   
-  alertProductoAgregado.classList.remove('hide');
-  alertProductoAgregado.classList.add("textoAlertAgregado")
-  alertProductoAgregado.textContent = `Producto agregado! Tienes ${carritoArray.length +1} productos en el carrito.`
-  setTimeout(alert, 2000)
-
-  function alert(){
-    alertProductoAgregado.classList.add('hide')
-  }
-  
 
   agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripcionProducto)
+  alertProductoAgregadoCarrito()
 }
 
 
@@ -206,7 +208,6 @@ function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripc
     actualizarCarrito();
 
     localStorage.setItem("carrito", JSON.stringify(carritoArray));
-
   });
 
   carritoFlotante.querySelector(".cantidadItemCarrito").addEventListener("change", (e)=> {
@@ -224,6 +225,7 @@ function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripc
     actualizarCarrito();
   });
 
+  
   actualizarCarrito()
 
   localStorage.setItem("carrito", JSON.stringify(carritoArray))
@@ -249,9 +251,6 @@ function actualizarCarrito() {
     
     cantidadTotal =  cantidadTotal + cantidadItemCarrito;
     total = total + precioItemCarrito * cantidadItemCarrito;
-    if (total == 0){
-      carrito.innerHTML = ""
-    }
   });
 
   contadorCarrito.innerText = cantidadTotal;
@@ -297,17 +296,4 @@ botonVaciarCarrito.addEventListener("click", () => {
   }
 
   recuperar()
-
-
-
-
-/*
-
-  errores que encuentro:
-
-  - Al subir o bajar cantidad de itemes en el carrito, no se agregan a carritoArray ni se guarda en 
-    localStorage 
-
-
-  */
 

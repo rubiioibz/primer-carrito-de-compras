@@ -59,7 +59,7 @@ optgroup {
 /*PRODUCTO*/
 .gridTienda {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   padding: 1rem; }
   .gridTienda a {
@@ -69,8 +69,8 @@ optgroup {
   margin: auto;
   background-color: white;
   padding: .5rem;
-  width: 100%;
-  min-height: 650px;
+  width: 85%;
+  min-height: 500px;
   box-shadow: rgba(0, 0, 0, 0.589) 2px 2px 5px;
   transition: all ease-out 0.2s;
   border-radius: 1rem; }
