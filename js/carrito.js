@@ -296,4 +296,3 @@ botonVaciarCarrito.addEventListener("click", () => {
   }
 
   recuperar()
-
