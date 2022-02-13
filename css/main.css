@@ -7,28 +7,41 @@
 .linkContadorCarrito {
   text-decoration: none; }
 
-#contadorCarrito {
-  color: #f0cc04;
-  font-size: 18px; }
+/*alert producto comprado*/
+.hide {
+  visibility: hidden;
+  display: none; }
+
+.textoAlertAgregado {
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: "Quicksand", sans-serif; }
 
 .tituloTienda {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.452); }
 
 /*Main tienda*/
 .mainTienda {
-  display: grid;
-  grid-template-columns: 2fr auto; }
+  display: flex;
+  flex-direction: column; }
 
 /*Selector tienda*/
 .contenedorSelector {
-  padding: 1rem; }
-
-#selector {
+  padding: .5rem;
   display: flex;
   justify-content: center;
   text-align: start;
-  padding: .5rem;
-  border-radius: .5rem; }
+  border: white solid 1px;
+  width: 75%;
+  margin-bottom: 2rem; }
+
+#selector {
+  padding: .5rem; }
+
+.busqueda {
+  padding: .5rem; }
+  .busqueda::placeholder {
+    color: #939493; }
 
 optgroup {
   text-align: start; }
@@ -46,7 +59,7 @@ optgroup {
 /*PRODUCTO*/
 .gridTienda {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   padding: 1rem; }
   .gridTienda a {
@@ -57,6 +70,7 @@ optgroup {
   background-color: white;
   padding: .5rem;
   width: 100%;
+  min-height: 650px;
   box-shadow: rgba(0, 0, 0, 0.589) 2px 2px 5px;
   transition: all ease-out 0.2s;
   border-radius: 1rem; }
@@ -98,14 +112,17 @@ optgroup {
   border-radius: 1rem;
   font-size: 1.2rem;
   padding: .5rem;
-  transition: background-color .2s ease-in;
   grid-column: 1 / 3;
   margin-bottom: 1rem;
   width: 100%; }
   .producto__carrito--btn:hover {
+    transition: background-color .2s ease-in;
     cursor: pointer;
     background-color: #caad07;
     color: black; }
+  .producto__carrito--btn:active {
+    background-color: black;
+    color: white; }
 
 /*REALIZA TUS COMPRAS BANNER*/
 .bannerCompras {
@@ -140,15 +157,35 @@ optgroup {
 
 /*CARRITO*/
 .carritoContenedor {
-  background-color: white;
-  width: 90%;
+  width: 75%;
   margin: auto;
   border-radius: 1rem;
-  margin-bottom: 2rem; }
+  margin-bottom: 5rem; }
+
+.offCanvasMio {
+  overflow-y: scroll;
+  background-color: white;
+  border-radius: 1rem; }
 
 .totalContenedor {
   color: #da4848;
   font-size: 1.3rem; }
+
+.btnComprar, .btnVaciar {
+  border: none !important; }
+
+.btnComprar:hover {
+  background-color: #f3d175 !important; }
+
+.btnComprar:active {
+  background-color: white !important;
+  color: white !important; }
+
+.btnVaciar:hover {
+  background-color: #303030 !important; }
+
+.btnVaciar:active {
+  background-color: white !important; }
 
 /*ICONOS*/
 .fa-github {

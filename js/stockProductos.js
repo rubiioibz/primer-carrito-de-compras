@@ -1,6 +1,6 @@
 //CLASES
 class Producto {
-    constructor(id, nombre, tipo, descripcion, medidas, stock, precio) {
+    constructor(id, nombre, tipo, descripcion, medidas, stock, precio, img) {
       this.id = id;
       this.nombre = nombre.toUpperCase();
       this.tipo = tipo;
@@ -8,6 +8,7 @@ class Producto {
       this.medidas = medidas;
       this.stock = stock;
       this.precio = parseFloat(precio);
+      this.img = img;
       this.vendido = false;
     }
   
@@ -44,7 +45,7 @@ class Producto {
   }
   
   const productos = [
-    {
+    { 
       id: 1,
       nombre: "rubiio posca",
       tipo: "cuadro",
@@ -52,6 +53,7 @@ class Producto {
       medidas: "big",
       stock: 1,
       precio: 100,
+      img : "/img/cuadros/1.jpg",
     },
     {
       id: 2,
@@ -61,6 +63,7 @@ class Producto {
       medidas: "small",
       stock: 1,
       precio: 15,
+      img : "/img/cuadros/2.jpg",
     },
     {
       id: 3,
@@ -70,6 +73,7 @@ class Producto {
       medidas: "small",
       stock: 1,
       precio: 25,
+      img : "/img/cuadros/3.jpg",
     },
     {
       id: 4,
@@ -79,6 +83,7 @@ class Producto {
       medidas: "small",
       stock: 1,
       precio: 25,
+      img : "/img/cuadros/4.jpg",
     },
     {
       id: 5,
@@ -88,6 +93,7 @@ class Producto {
       medidas: "medium",
       stock: 1,
       precio: 30,
+      img : "/img/cuadros/5.jpg",
     },
     {
       id: 6,
@@ -97,6 +103,7 @@ class Producto {
       medidas: "medium",
       stock: 1,
       precio: 60,
+      img : "/img/cuadros/6.jpg",
     },
     {
       id: 7,
@@ -106,6 +113,7 @@ class Producto {
       medidas: "medium",
       stock: 1,
       precio: 50,
+      img : "/img/cuadros/7.jpg",
     },
     {
       id: 8,
@@ -115,6 +123,7 @@ class Producto {
       medidas: "small",
       stock: 2,
       precio: 35,
+      img : "/img/cuadros/8.jpg",
     },
     {
       id: 9,
@@ -124,6 +133,7 @@ class Producto {
       medidas: "big",
       stock: 1,
       precio: 200,
+      img : "/img/cuadros/9.jpg",
     },
     {
         id: 10,
@@ -133,6 +143,7 @@ class Producto {
         medidas: "small",
         stock: 1,
         precio: 15,
+        img : "/img/cuadros/10.jpg",
       },
       {
         id: 11,
@@ -142,6 +153,7 @@ class Producto {
         medidas: "small",
         stock: 1,
         precio: 10,
+        img : "/img/cuadros/11.jpg",
       },
   ];
   

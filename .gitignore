@@ -2,6 +2,7 @@
 pruebas.js
 tienda.js
 login.js
+funciones.js
 
 # Ignorar la carpeta node_modules
 node_modules

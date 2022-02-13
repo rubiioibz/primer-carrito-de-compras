@@ -1,4 +1,4 @@
-/* TIENDA ******************************************************************************/
+/*/////////////////////////////////////////// TIENDA /////////////////////////////////////////*/ 
 
 let carritoArray = []
 
@@ -12,8 +12,14 @@ const carrito = document.querySelector(".elCarrito");
 const botonComprar = document.querySelector(".btnComprar");
 const botonVaciarCarrito = document.querySelector(".btnVaciar");
 
+const busqueda = document.querySelector(".busqueda");
 
-//filtro
+const alertProductoAgregado = document.querySelector(".hide");
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////// FILTRO /////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////*/
+
 selector.addEventListener("change", () => {
 
   if (selector.value == "todos") {
@@ -48,8 +54,23 @@ selector.addEventListener("change", () => {
   }
 })
 
+/*/////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////// BUSCADOR ///////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////*/
 
-//Ecommerce
+busqueda.addEventListener("input", () => {
+  
+  if (busqueda.value == ""){
+    mostrarProductos(productos)
+  }else {
+      mostrarProductos(productos.filter(e => e.nombre.toLowerCase().includes(busqueda.value.toLowerCase())))
+    }
+})
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////// ECOMMERCE /////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////*/
+
 mostrarProductos(productos)
 
 function mostrarProductos(array) {
@@ -81,6 +102,8 @@ function mostrarProductos(array) {
 }
 
 
+//////////////////////////////////// AGREGAR AL CARRITO CLICK ///////////////////////////////////////
+
 function agregarAlCarritoClick(e){
   const boton = e.target
   const producto = boton.closest(".producto");
@@ -90,8 +113,23 @@ function agregarAlCarritoClick(e){
   const imgProducto = producto.querySelector(".producto__imagen").src;
   const descripcionProducto = producto.querySelector(".producto__descripcion").textContent;
   
+  alertProductoAgregado.classList.remove('hide');
+  alertProductoAgregado.classList.add("textoAlertAgregado")
+  alertProductoAgregado.textContent = `Producto agregado! Tienes ${carritoArray.length +1} productos en el carrito.`
+  setTimeout(alert, 2000)
+
+  function alert(){
+    alertProductoAgregado.classList.add('hide')
+  }
+  
+
   agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripcionProducto)
 }
+
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////// AGREGAR AL CARRITO ///////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////*/
 
 function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripcionProducto) {
 
@@ -99,10 +137,13 @@ function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripc
 
   for (let i = 0; i < titulo.length; i++) {
     if (titulo[i].innerHTML === tituloProducto){
+
       let cantidadElemento = titulo[i].parentElement.parentElement.parentElement.querySelector(".cantidadItemCarrito");
-      console.log(titulo[i].parentElement.parentElement.parentElement.querySelector(".cantidadItemCarrito"));
       cantidadElemento.value++;
+      let repetido = carritoArray.find(e => e.nombre == tituloProducto);
+      carritoArray.push(repetido)
       actualizarCarrito()
+      localStorage.setItem("carrito", JSON.stringify(carritoArray));
       return;
     }
   }
@@ -112,7 +153,7 @@ function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripc
 
   const carritoFlotante = document.createElement("div");
   const carritoFlotanteContenido = `
-  <div class="card rounded-3 mb-4 productoCarrito">
+  <div class="card rounded-3 mb-4 productoCarrito shadow bg-light">
               <div class="card-body p-4">
                 <div class="row d-flex justify-content-between align-items-center">
                   <div class="col-md-2 col-lg-2 col-xl-2">
@@ -164,9 +205,7 @@ function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripc
   });
   
   carritoFlotante.querySelector(".cantidadItemCarrito").addEventListener("change", cantidadItemCarrito);
-
   carritoFlotante.querySelector(".botonMas").addEventListener("click", subeCantidad);
-
   carritoFlotante.querySelector(".botonMenos").addEventListener("click", bajaCantidad);
 
   actualizarCarrito()
@@ -175,6 +214,10 @@ function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripc
 
 }
  
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////// ACTUALIZAR CARRITO ///////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////*/
 
 function actualizarCarrito() {
 
@@ -197,11 +240,8 @@ function actualizarCarrito() {
     }
   });
 
-
   contadorCarrito.innerText = cantidadTotal;
   totalCarrito.innerHTML = `€${total.toFixed(2)}`;
-
-  
 }
 
 
@@ -225,8 +265,10 @@ botonComprar.addEventListener("click", botonComprarClick)
 
 function botonComprarClick() {
   alert("Gracias por su compra =)")
+  carritoArray = []
   carrito.innerHTML = "";
   actualizarCarrito();
+  localStorage.clear()
 }
 
 botonVaciarCarrito.addEventListener("click", () => {
@@ -234,20 +276,33 @@ botonVaciarCarrito.addEventListener("click", () => {
   carritoArray = []
   actualizarCarrito()
   localStorage.clear()
-    console.log(carritoArray);
 })
-  
 
-  // function recuperar() {
-  //   let recuperarLS = JSON.parse(localStorage.getItem("carrito"));
-  //   console.log(recuperarLS);
-  //   if (recuperarLS){
-  //     recuperarLS.forEach(e => {
-        
-  //     })
-  //   }
-  // }
+/*/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////// RECUPERAR LS ///////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////*/
 
-  // recuperar()
+  function recuperar (){
+    let recuperoLocalStorage = JSON.parse(localStorage.getItem("carrito"));
+    if (recuperoLocalStorage){
+      recuperoLocalStorage.forEach(e => {
+        agregarAlCarrito(e.nombre, e.precio, e.img, e.descripcion)
+      })
+    }
+  }
 
+  recuperar()
+
+
+
+
+/*
+
+  errores que encuentro:
+
+  - Al subir o bajar cantidad de itemes en el carrito, no se agregan a carritoArray ni se guarda en 
+    localStorage 
+
+
+  */
 
