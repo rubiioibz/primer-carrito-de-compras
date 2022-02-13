@@ -1,3 +1,7 @@
+addEventListener('load', ()=> {
+  console.log('Sitio cargado correctamente');
+})
+
 /*/////////////////////////////////////////// TIENDA /////////////////////////////////////////*/ 
 
 let carritoArray = []
@@ -193,6 +197,7 @@ function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripc
   carrito.appendChild(carritoFlotante);
   
 
+  /////////////////////////////// EVENTOS BOTONES CARRITO ///////////////////////////////////
   let botonEliminar = carritoFlotante.querySelector(".borrarItemCarrito");
   botonEliminar.addEventListener("click", () => {
     
@@ -203,18 +208,27 @@ function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripc
     localStorage.setItem("carrito", JSON.stringify(carritoArray));
 
   });
-  
-  carritoFlotante.querySelector(".cantidadItemCarrito").addEventListener("change", cantidadItemCarrito);
-  carritoFlotante.querySelector(".botonMas").addEventListener("click", subeCantidad);
-  carritoFlotante.querySelector(".botonMenos").addEventListener("click", bajaCantidad);
+
+  carritoFlotante.querySelector(".cantidadItemCarrito").addEventListener("change", (e)=> {
+    e.target;
+    actualizarCarrito();
+  });
+
+  carritoFlotante.querySelector(".botonMas").addEventListener("click", (e)=> {
+    e.target;
+    actualizarCarrito();
+  });
+
+  carritoFlotante.querySelector(".botonMenos").addEventListener("click", (e)=> {
+    e.target;
+    actualizarCarrito();
+  });
 
   actualizarCarrito()
 
   localStorage.setItem("carrito", JSON.stringify(carritoArray))
-
 }
  
-
 /*/////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////// ACTUALIZAR CARRITO ///////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -244,22 +258,9 @@ function actualizarCarrito() {
   totalCarrito.innerHTML = `€${total.toFixed(2)}`;
 }
 
-
-function cantidadItemCarrito(e){
-  e.target;
-  actualizarCarrito();
-}
-
-function subeCantidad(e){
-  e.target;
-  actualizarCarrito();
-}
-
-function bajaCantidad(e){
-  e.target;
-  actualizarCarrito();
-}
-
+/*/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////// BOTON COMPRAR ////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////*/
 
 botonComprar.addEventListener("click", botonComprarClick)
 
@@ -271,6 +272,10 @@ function botonComprarClick() {
   localStorage.clear()
 }
 
+/*/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////// BOTON VACIAR CARRITO /////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////*/
+
 botonVaciarCarrito.addEventListener("click", () => {
   carrito.innerHTML = "";
   carritoArray = []
@@ -279,7 +284,7 @@ botonVaciarCarrito.addEventListener("click", () => {
 })
 
 /*/////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////// RECUPERAR LS ///////////////////////////////////
+/////////////////////////////////////// RECUPERAR LS /////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////*/
 
   function recuperar (){
