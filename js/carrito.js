@@ -347,49 +347,6 @@ botonVaciarCarrito.addEventListener("click", () => {
 
   recuperar()
 
-  // let mati = ['mati', 'cris', 'teAmo']
-
-  
-  // console.log(localStorage.setItem("matias", JSON.stringify(mati)));
-
-// const users = ['matias', 'cristina', 'manolo', 'solita', 'raul'];
-
-// const usuarios = [{
-//   nombre : 'matias',
-//   apellido : 'mattera',
-//   edad : 31
-// },{
-//   nombre : 'cristina',
-//   apellido : 'sabiote',
-//   edad : 29
-// },{
-//   nombre : 'ignacio',
-//   apellido : 'maffud',
-//   edad : 28
-// },{
-//   nombre : 'juan',
-//   apellido : 'gavazza',
-//   edad : 32
-// },];
-
-// const masUsuarios = [...usuarios, {nombre: 'rosario', apellido : 'lagarza', edad: 25}];
-// const [nombre, apellido, edad] = usuarios
-
-// console.log(usuarios);
-// console.log(masUsuarios);
-
-// const mas = [...users, 'julieta', 'ramiro']
-// console.log(users);
-//   console.log(mas);
-
-//   const llaves = Object.keys(usuarios);
-//   llaves.forEach(llave => {
-//     console.log(usuarios[llave]);
-//   })
-//   console.log(usuarios[1]);
-
-
-
 
 
 
