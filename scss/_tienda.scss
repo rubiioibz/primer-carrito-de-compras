@@ -43,9 +43,13 @@ $color_fondo : linear-gradient(45deg, #2a1e44 50% ,#0e4961 , #134738 );
     justify-content: center;
     text-align: start;
     border: rgb(255, 255, 255) solid 1px;
-    width: 75%;
+    width: 80%;
     margin-bottom: 2rem;
     
+}
+#paises {
+    min-width: 200px;
+    height: 100%;
 }
 
 #selector {
@@ -82,7 +86,7 @@ optgroup {
 
 .gridTienda {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     padding: 1rem ;
 

@@ -5,7 +5,7 @@
       id: 1,
       nombre: "rubiio posca",
       tipo: "cuadro",
-      descripcion: "Cuadro realizado en enteramente en rotuladores Posca",
+      descripcion: "Cuadro realizado enteramente en rotuladores Posca",
       medidas: "big",
       stock: 1,
       precio: 100,
@@ -15,7 +15,7 @@
       id: 2,
       nombre: "drubiio",
       tipo: "cuadro",
-      descripcion: "Cuadrito hecho en madera fina, con rotuladores y lapices",
+      descripcion: "Cuadro hecho en madera, con rotuladores y lapices",
       medidas: "small",
       stock: 1,
       precio: 15,
@@ -78,7 +78,7 @@
       descripcion: "Cuadro realizado con pintura en aerosol y rotuladores Posca",
       medidas: "small",
       stock: 2,
-      precio: 35,
+      precio: 45,
       img : "/img/cuadros/8.jpg",
     },
     {
@@ -98,7 +98,7 @@
         descripcion: "Cuadro realizado con pintura en aerosol y rotuladores Posca",
         medidas: "small",
         stock: 1,
-        precio: 15,
+        precio: 25,
         img : "/img/cuadros/10.jpg",
       },
       {
@@ -108,7 +108,7 @@
         descripcion: "Cuadro realizado en madera con pintura acrilica y rotuladores Posca.",
         medidas: "small",
         stock: 1,
-        precio: 10,
+        precio: 20,
         img : "/img/cuadros/11.jpg",
       },
       {
@@ -118,11 +118,10 @@
         descripcion: "Cuadro realizado en madera con pintura acrilica.",
         medidas: "medium",
         stock: 1,
-        precio: 40,
+        precio: 20,
         img : "/img/cuadros/12.jpg",
       },
   ];
-  
 
   /*/////////////////////////////////////////// CLASE /////////////////////////////////////////*/ 
 class Producto {

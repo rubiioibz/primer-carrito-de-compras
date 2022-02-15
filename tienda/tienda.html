@@ -157,6 +157,7 @@
     </header>
 
     <main>
+      
       <!--ALERT DE PRODUCTO AGREGADO AL CARRITO-->
       <div class="alert alert-warning m-0 hide sticky-top p-4 text-center" role="alert">
         <span></span>
@@ -241,18 +242,27 @@
             type="text"
           />
 
+          <!--IDIOMA BIENVENIDA-->
+          <form>
+            <select name="idiomas" id="paises" class="mx-auto">
+              <option value="espaniol">Bienvenido</option>
+              <option value="italiano">Italiano</option>
+              <option value="frances">Frances</option>
+              <option value="ingles">Ingles</option>
+            </select>
+          </form>
+          <p class="text-light fw-bold h2 m-auto" id="mostrarIdioma">Bienvenido</p>
+
         </div>
 
         <!--CONTENEDOR PRODUCTOS-->
-        <div class="text-light m-0">
-          <div id="contenedorProducto" class="gridTienda col-9 mx-auto">
+          <div id="contenedorProducto" class="gridTienda col-10 mx-auto">
             <!--
               
             Aca se muestran los productos de la tienda
             
             -->
           </div>
-        </div>
       </div>
 
       

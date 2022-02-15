@@ -32,8 +32,12 @@
   justify-content: center;
   text-align: start;
   border: white solid 1px;
-  width: 75%;
+  width: 80%;
   margin-bottom: 2rem; }
+
+#paises {
+  min-width: 200px;
+  height: 100%; }
 
 #selector {
   padding: .5rem; }
@@ -59,7 +63,7 @@ optgroup {
 /*PRODUCTO*/
 .gridTienda {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   padding: 1rem; }
   .gridTienda a {

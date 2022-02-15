@@ -3,8 +3,8 @@ addEventListener('load', ()=> {
 })
 
 /*/////////////////////////////////////////// TIENDA /////////////////////////////////////////*/ 
-
 let carritoArray = []
+
 
 const contenedorProducto = document.getElementById("contenedorProducto");
 const selector = document.getElementById("selector")
@@ -63,13 +63,45 @@ selector.addEventListener("change", () => {
 ////////////////////////////////////////////////////////////////////////////////////////////*/
 
 busqueda.addEventListener("input", () => {
-  
-  if (busqueda.value == ""){
-    mostrarProductos(productos)
-  }else {
-      mostrarProductos(productos.filter(e => e.nombre.toLowerCase().includes(busqueda.value.toLowerCase())))
-    }
+
+  let input = productos.filter(e => e.nombre.toLowerCase().includes(busqueda.value.toLowerCase()))
+  let filtro = mostrarProductos(input)
+
+  busqueda.value === "" ? mostrarProductos(productos) : filtro;
+
+  input.length === 0 ? contenedorProducto.innerHTML = `<h5 class="h2 text-light">Producto no encontrado</h5>`: filtro;
 })
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////// BIENVENIDA ///////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////*/
+
+const traducciones = {
+    bienvenida: {
+      espaniol: 'Bienvenido',
+      italiano: 'Benvenuto',
+      frances: 'Bienvenue',
+      ingles: 'Welcome'
+    },
+    adios: {
+      espaniol: 'Adios',
+      italiano: 'arrivederci',
+      frances: 'Au revoir',
+      ingles: 'Good bye'
+    }
+}
+const {bienvenida, adios} = traducciones
+
+const select = document.querySelector('#paises');
+const mostrarIdioma = document.getElementById('mostrarIdioma');
+
+select.addEventListener('change', () =>{
+  mostrarIdioma.textContent = obtenerTraduccion(select.value)
+})
+
+const obtenerTraduccion = (idioma) => {
+  return bienvenida[idioma]
+}
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////// ECOMMERCE /////////////////////////////////////////
@@ -85,7 +117,7 @@ function mostrarProductos(array) {
                     <div class="producto">
                       <h2 class="producto__nombre">${producto.nombre}</h2>
                       <a class="producto__link" href="producto.html">
-                        <img class="producto__imagen" src="../../img/cuadros/${producto.id}.jpg" alt="${producto.nombre}">
+                        <img class="producto__imagen" src="${producto.img}" alt="${producto.nombre}">
                       </a>
                         <div class="producto__informacion">
                           
@@ -105,6 +137,8 @@ function mostrarProductos(array) {
 
 }
 
+
+//////////////////////////////////// ALERT PROD. AGREGADO A CARRITO ///////////////////////////////////////
 function alertProductoAgregadoCarrito() {
   alertProductoAgregado.classList.remove('hide');
   alertProductoAgregado.classList.add("textoAlertAgregado")
@@ -215,11 +249,16 @@ function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripc
     actualizarCarrito();
   });
 
+  ////////////////////////////////////// BOTON MAS //////////////////////////////////////////
   carritoFlotante.querySelector(".botonMas").addEventListener("click", (e)=> {
     e.target;
+    let repetido = productos.find(e => e.nombre == tituloProducto)
+    carritoArray.push(repetido)
     actualizarCarrito();
+    localStorage.setItem("carrito", JSON.stringify(carritoArray));
   });
 
+  ////////////////////////////////////// BOTON MENOS ////////////////////////////////////////
   carritoFlotante.querySelector(".botonMenos").addEventListener("click", (e)=> {
     e.target;
     actualizarCarrito();
@@ -254,7 +293,9 @@ function actualizarCarrito() {
   });
 
   contadorCarrito.innerText = cantidadTotal;
-  totalCarrito.innerHTML = `€${total.toFixed(2)}`;
+  totalCarrito.innerHTML = `€${total}`;
+
+  carritoArray.length === 0 && console.log('el carrito esta vacio');
 }
 
 /*/////////////////////////////////////////////////////////////////////////////////////////////
@@ -264,11 +305,20 @@ function actualizarCarrito() {
 botonComprar.addEventListener("click", botonComprarClick)
 
 function botonComprarClick() {
-  alert("Gracias por su compra =)")
-  carritoArray = []
-  carrito.innerHTML = "";
-  actualizarCarrito();
-  localStorage.clear()
+  if (carritoArray.length > 0){
+    alert("Gracias por su compra")
+    carritoArray = []
+    carrito.innerHTML = "";
+    actualizarCarrito();
+    localStorage.clear()
+  }else{
+    carrito.innerHTML = '<h5 class="h2 text-center text-secondary">No hay nada en el carrito</h5>'
+
+    setTimeout(borrar, 2000)
+    function borrar(){
+      carrito.innerHTML = ""
+    }
+  }
 }
 
 /*/////////////////////////////////////////////////////////////////////////////////////////////
@@ -296,3 +346,50 @@ botonVaciarCarrito.addEventListener("click", () => {
   }
 
   recuperar()
+
+  // let mati = ['mati', 'cris', 'teAmo']
+
+  
+  // console.log(localStorage.setItem("matias", JSON.stringify(mati)));
+
+// const users = ['matias', 'cristina', 'manolo', 'solita', 'raul'];
+
+// const usuarios = [{
+//   nombre : 'matias',
+//   apellido : 'mattera',
+//   edad : 31
+// },{
+//   nombre : 'cristina',
+//   apellido : 'sabiote',
+//   edad : 29
+// },{
+//   nombre : 'ignacio',
+//   apellido : 'maffud',
+//   edad : 28
+// },{
+//   nombre : 'juan',
+//   apellido : 'gavazza',
+//   edad : 32
+// },];
+
+// const masUsuarios = [...usuarios, {nombre: 'rosario', apellido : 'lagarza', edad: 25}];
+// const [nombre, apellido, edad] = usuarios
+
+// console.log(usuarios);
+// console.log(masUsuarios);
+
+// const mas = [...users, 'julieta', 'ramiro']
+// console.log(users);
+//   console.log(mas);
+
+//   const llaves = Object.keys(usuarios);
+//   llaves.forEach(llave => {
+//     console.log(usuarios[llave]);
+//   })
+//   console.log(usuarios[1]);
+
+
+
+
+
+
