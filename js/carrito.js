@@ -269,7 +269,7 @@ function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripc
     let repetido = productos.find(e => e.nombre == tituloProducto)
     carritoArray.push(repetido)
     actualizarCarrito();
-    Toastify({
+    Toastify({                           //agrego Toastify para alertar producto agregado
       text: "Producto agregado",
       className: "prod-agregado",
       duration: 1500,
@@ -284,7 +284,7 @@ function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripc
   const btnMenos = carritoFlotante.querySelector(".botonMenos")
   btnMenos.addEventListener("click", ()=> {
     
-    Toastify({
+    Toastify({                           //agrego Toastify para alertar producto eliminado
       text: "Producto eliminado",
       className: "prod-eliminado",
       duration: 1500,
@@ -335,7 +335,7 @@ botonComprar.addEventListener("click", botonComprarClick)
 
 function botonComprarClick() {
   if (carritoArray.length > 0){
-    Swal.fire({
+    Swal.fire({                           //agrego sweetAlert para informar de compra realizada
       title: 'Compra realizada correctamente',
       text: `El total de su compra es: ${totalCarrito.textContent}`,
       icon: 'success',
