@@ -168,5 +168,3 @@ class Producto {
     console.log("vendido: " + this.vendido);
   }
 }
-
-  

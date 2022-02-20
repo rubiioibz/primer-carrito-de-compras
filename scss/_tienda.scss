@@ -7,6 +7,12 @@ $amarillo-rubiio:rgb(240, 204, 4);
 $fuente-principal: 'Quicksand', sans-serif;
 $color_fondo : linear-gradient(45deg, #2a1e44 50% ,#0e4961 , #134738 );
 
+/*DESACTIVAR LAS FLECHAS DE ARRIBA Y ABAJO DE LOS INPUT NUMBER*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
 
 /*ESTILOS DE LA TIENDA*/
 
@@ -19,6 +25,7 @@ $color_fondo : linear-gradient(45deg, #2a1e44 50% ,#0e4961 , #134738 );
     visibility: hidden;
     display: none;
 }
+
 
 .textoAlertAgregado {
     font-size: 1.1rem;
@@ -101,7 +108,7 @@ optgroup {
     padding: .5rem;
     width: 85%;
     min-height: 500px;
-    box-shadow: rgba(0, 0, 0, 0.589) 2px 2px 5px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.301);
     transition: all ease-out 0.2s;
     border-radius: 1rem;
     
@@ -149,7 +156,7 @@ optgroup {
 .producto__imagen {
     width: 100%;
     object-fit: scale-down;
-    box-shadow: rgba(29, 29, 29, 0.589) 2px 2px 5px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.301);
 }
 
 .producto__carrito--btn {
@@ -266,6 +273,13 @@ background-color: rgb(48, 48, 48) !important;
 background-color: white !important;
 }
 
+
+.swal2-confirm {
+    background-color: $amarillo-rubiio !important;
+    color: black !important;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.301);
+
+}
 
 
 

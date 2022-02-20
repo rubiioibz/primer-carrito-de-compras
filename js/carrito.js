@@ -5,13 +5,13 @@ addEventListener('load', ()=> {
 /*/////////////////////////////////////////// TIENDA /////////////////////////////////////////*/ 
 let carritoArray = []
 
-
 const contenedorProducto = document.getElementById("contenedorProducto");
 const selector = document.getElementById("selector")
 
 const contadorCarrito = document.getElementById("contadorCarrito");
 const botonesAgregarAlCarrito = document.getElementsByClassName("producto__carrito--btn");
 const carrito = document.querySelector(".elCarrito");
+const totalCarrito = document.querySelector(".total");
 
 const botonComprar = document.querySelector(".btnComprar");
 const botonVaciarCarrito = document.querySelector(".btnVaciar");
@@ -97,6 +97,11 @@ const mostrarIdioma = document.getElementById('mostrarIdioma');
 
 select.addEventListener('change', () =>{
   mostrarIdioma.textContent = obtenerTraduccion(select.value)
+  mostrarIdioma.classList.add('animate__fadeInLeft')
+  setTimeout(quitar, 1000)
+  function quitar() {
+    mostrarIdioma.classList.remove('animate__fadeInLeft')
+  }
 })
 
 const obtenerTraduccion = (idioma) => {
@@ -142,6 +147,7 @@ function mostrarProductos(array) {
 function alertProductoAgregadoCarrito() {
   alertProductoAgregado.classList.remove('hide');
   alertProductoAgregado.classList.add("textoAlertAgregado")
+  alertProductoAgregado.classList.add("animate__fadeInDown")
   alertProductoAgregado.textContent = `Producto agregado! Tienes ${carritoArray.length} productos en el carrito.`
   setTimeout(alert, 2000)
 
@@ -165,7 +171,6 @@ function agregarAlCarritoClick(e){
   agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripcionProducto)
   alertProductoAgregadoCarrito()
 }
-
 
 /*/////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////// AGREGAR AL CARRITO ///////////////////////////////////
@@ -240,10 +245,19 @@ function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripc
     botonEliminar.closest(".productoCarrito").remove();
     carritoArray =  carritoArray.filter(e => e.nombre != tituloProducto);
     actualizarCarrito();
+    Toastify({
+      text: "Producto eliminado",
+      className: "prod-eliminado",
+      duration: 1500,
+      style: {
+        background: "linear-gradient(to right, #9b1b22, #471012)",
+      }
+    }).showToast();
 
     localStorage.setItem("carrito", JSON.stringify(carritoArray));
   });
 
+  //
   carritoFlotante.querySelector(".cantidadItemCarrito").addEventListener("change", (e)=> {
     e.target;
     actualizarCarrito();
@@ -255,21 +269,37 @@ function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripc
     let repetido = productos.find(e => e.nombre == tituloProducto)
     carritoArray.push(repetido)
     actualizarCarrito();
+    Toastify({
+      text: "Producto agregado",
+      className: "prod-agregado",
+      duration: 1500,
+      style: {
+        background: "linear-gradient(to right, #e2c74f, #8b7b2f)",
+      }
+    }).showToast();
     localStorage.setItem("carrito", JSON.stringify(carritoArray));
   });
 
   ////////////////////////////////////// BOTON MENOS ////////////////////////////////////////
-  carritoFlotante.querySelector(".botonMenos").addEventListener("click", (e)=> {
-    e.target;
+  const btnMenos = carritoFlotante.querySelector(".botonMenos")
+  btnMenos.addEventListener("click", ()=> {
+    
+    Toastify({
+      text: "Producto eliminado",
+      className: "prod-eliminado",
+      duration: 1500,
+      style: {
+        background: "linear-gradient(to right, #9b1b22, #471012)",
+      }
+    }).showToast();
     actualizarCarrito();
+    
   });
-
-  
   actualizarCarrito()
-
   localStorage.setItem("carrito", JSON.stringify(carritoArray))
 }
  
+
 /*/////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////// ACTUALIZAR CARRITO ///////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -278,8 +308,7 @@ function actualizarCarrito() {
 
   let total = 0;
   let cantidadTotal = 0;
-
-  const totalCarrito = document.querySelector(".total");
+  
   const itemsCarrito = document.querySelectorAll(".productoCarrito");
 
   itemsCarrito.forEach((item) => {
@@ -306,7 +335,12 @@ botonComprar.addEventListener("click", botonComprarClick)
 
 function botonComprarClick() {
   if (carritoArray.length > 0){
-    alert("Gracias por su compra")
+    Swal.fire({
+      title: 'Compra realizada correctamente',
+      text: `El total de su compra es: ${totalCarrito.textContent}`,
+      icon: 'success',
+      confirmButtonText: 'Aceptar'
+    })
     carritoArray = []
     carrito.innerHTML = "";
     actualizarCarrito();
