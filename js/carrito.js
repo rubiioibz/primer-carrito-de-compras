@@ -116,6 +116,11 @@ mostrarProductos(productos)
 
 function mostrarProductos(array) {
   contenedorProducto.innerHTML = "";
+  contenedorProducto.classList.add('animate__animated', 'animate__slideInUp')
+  setTimeout(() => {
+    contenedorProducto.classList.remove('animate__slideInUp')
+  }, 1000)
+
   for (const producto of array) {
     let div = document.createElement("div");
     div.innerHTML += `
@@ -215,7 +220,7 @@ function agregarAlCarrito (tituloProducto, precioProducto, imgProducto, descripc
                       <i class="fas fa-minus"></i>
                     </button>
     
-                    <input id="form1" min="0" name="quantity" value="1" type="number"
+                    <input id="form1" min="1" name="quantity" value="1" type="number"
                       class="form-control form-control-sm cantidadItemCarrito text-center" />
     
                     <button class="btn btn-link px-2 botonMas"
@@ -339,7 +344,7 @@ function botonComprarClick() {
       title: 'Compra realizada correctamente',
       text: `El total de su compra es: ${totalCarrito.textContent}`,
       icon: 'success',
-      confirmButtonText: 'Aceptar'
+      confirmButtonText: 'Ok'
     })
     carritoArray = []
     carrito.innerHTML = "";
