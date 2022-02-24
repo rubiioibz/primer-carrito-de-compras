@@ -37,6 +37,15 @@ input[type=number]::-webkit-outer-spin-button {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.452);
 }
 
+/*cargando*/
+
+.cargando{
+    padding-bottom:100%;
+    position:relative;
+    text-align: center;
+    
+}
+
 /*Main tienda*/
 .mainTienda {
     display: flex;
@@ -54,6 +63,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin-bottom: 2rem;
     
 }
+
 #paises {
     min-width: 200px;
     height: 100%;

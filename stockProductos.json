@@ -1,0 +1,122 @@
+[
+    { 
+      "id": 1,
+      "nombre": "rubiio posca",
+      "tipo": "cuadro",
+      "descripcion": "Cuadro realizado enteramente en rotuladores Posca",
+      "medidas": "big",
+      "stock": 1,
+      "precio": 100,
+      "img" : "/img/cuadros/1.jpg"
+    },
+    {
+      "id": 2,
+      "nombre": "drubiio",
+      "tipo": "cuadro",
+      "descripcion": "Cuadro hecho en madera, con rotuladores y lapices",
+      "medidas": "small",
+      "stock": 1,
+      "precio": 15,
+      "img" : "/img/cuadros/2.jpg"
+    },
+    {
+      "id": 3,
+      "nombre": "mache",
+      "tipo": "cuadro",
+      "descripcion": "Cuadro realizado en rotuladores Posca y pintura en aerosol",
+      "medidas": "small",
+      "stock": 1,
+      "precio": 25,
+      "img" : "/img/cuadros/3.jpg"
+    },
+    {
+      "id": 4,
+      "nombre": "bartfall",
+      "tipo": "cuadro",
+      "descripcion": "Cuadro hecho en madera con pintura acrilica",
+      "medidas": "small",
+      "stock": 1,
+      "precio": 25,
+      "img" : "/img/cuadros/4.jpg"
+    },
+    {
+      "id": 5,
+      "nombre": "regular Show",
+      "tipo": "cuadro",
+      "descripcion": "Cuadro hecho en madera con pintura acrilica",
+      "medidas": "medium",
+      "stock": 1,
+      "precio": 30,
+      "img" : "/img/cuadros/5.jpg"
+    },
+    {
+      "id": 6,
+      "nombre": "setario",
+      "tipo": "cuadro",
+      "descripcion": "Cuadro realizado en madera con pintura acrilica.",
+      "medidas": "medium",
+      "stock": 1,
+      "precio": 60,
+      "img" : "/img/cuadros/6.jpg"
+    },
+    {
+      "id": 7,
+      "nombre": "capucha",
+      "tipo": "cuadro",
+      "descripcion": "Cuadro realizado con pintura en aerosol y rotuladores Posca",
+      "medidas": "medium",
+      "stock": 1,
+      "precio": 50,
+      "img" : "/img/cuadros/7.jpg"
+    },
+    {
+      "id": 8,
+      "nombre": "verano verde",
+      "tipo": "cuado",
+      "descripcion": "Cuadro realizado con pintura en aerosol y rotuladores Posca",
+      "medidas": "small",
+      "stock": 2,
+      "precio": 45,
+      "img" : "/img/cuadros/8.jpg"
+    },
+    {
+      "id": 9,
+      "nombre": "letra r",
+      "tipo": "cuadro",
+      "descripcion": "Cuadro realizado enteramente con pintura en aerosol",
+      "medidas": "big",
+      "stock": 1,
+      "precio": 200,
+      "img" : "/img/cuadros/9.jpg"
+    },
+    {
+        "id": 10,
+        "nombre": "rubiio Green",
+        "tipo": "cuadro",
+        "descripcion": "Cuadro realizado con pintura en aerosol y rotuladores Posca",
+        "medidas": "small",
+        "stock": 1,
+        "precio": 25,
+        "img" : "/img/cuadros/10.jpg"
+    },
+    {
+        "id": 11,
+        "nombre": "pastel",
+        "tipo": "cuadro",
+        "descripcion": "Cuadro realizado en madera con pintura acrilica y rotuladores Posca.",
+        "medidas": "small",
+        "stock": 1,
+        "precio": 20,
+        "img" : "/img/cuadros/11.jpg"
+    },
+    {
+        "id": 12,
+        "nombre": "tomy y daly",
+        "tipo": "cuadro",
+        "descripcion": "Cuadro realizado en madera con pintura acrilica.",
+        "medidas": "medium",
+        "stock": 1,
+        "precio": 20,
+        "img" : "/img/cuadros/12.jpg"
+    }
+]

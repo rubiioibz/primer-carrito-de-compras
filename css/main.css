@@ -26,6 +26,12 @@ input[type=number]::-webkit-outer-spin-button {
 .tituloTienda {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.452); }
 
+/*cargando*/
+.cargando {
+  padding-bottom: 100%;
+  position: relative;
+  text-align: center; }
+
 /*Main tienda*/
 .mainTienda {
   display: flex;
@@ -488,6 +494,25 @@ footer {
   .mainTienda {
     display: grid;
     grid-template-columns: 1fr; }
+  .contenedorSelector {
+    width: 100%;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: start;
+    border: white solid 1px;
+    width: 80%;
+    margin-bottom: 2rem; }
+  #paises {
+    display: none; }
+  #mostrarIdioma {
+    display: none; }
+  .busqueda {
+    padding: .5rem;
+    margin: 0 !important; }
+    .busqueda::placeholder {
+      color: #939493; }
   #selector {
     width: 100%; }
   .imgSelector {
