@@ -111,25 +111,6 @@ const obtenerTraduccion = (idioma) => {
 contenedorProducto.innerHTML = `
                                 <div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/YPcHIrjwX5RD8rsDlx" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>`;
 
-//Promesa
-// const pedirProductos = () => {
-//   return new Promise ((resolve, reject) => {
-//     setInterval(()=> {
-//       resolve(productos)
-//     }, 3000)
-//   })
-//   .then((res) => {
-//     mostrarProductos(res)
-//   })
-//   .catch((error)=> {
-//     console.log(error);
-//   })
-//   .finally(()=> {
-//     console.log('Todo termino');
-//   })
-// }
-
-// pedirProductos()
 
 ///////////////////////////////// FETCH PARA PEDIR PRODUCTOS //////////////////////////////////
 fetch("stockProductos.json")
