@@ -13,6 +13,7 @@ const contadorCarrito = document.getElementById("contadorCarrito");
 const botonesAgregarAlCarrito = document.getElementsByClassName(
   "producto__carrito--btn"
 );
+
 const carrito = document.querySelector(".elCarrito");
 const totalCarrito = document.querySelector(".total");
 
@@ -104,14 +105,15 @@ select.addEventListener("change", () => {
 });
 
 const obtenerTraduccion = (idioma) => {
-  return bienvenida[idioma];
+  return bienvenida[idioma].toUpperCase();
 };
 
 ///////////////////////////////// IMG DE CARGA //////////////////////////////////
 contenedorProducto.innerHTML = `
-                                <div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/YPcHIrjwX5RD8rsDlx" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>`;
+<img src="https://roc21cdn-roc21.netdna-ssl.com/blog/wp-content/uploads/2016/05/preloader-en-formato-gif-cinco.gif" alt="Ver las imágenes de origen" class=" nofocus" tabindex="0" style="position: relative; height: 100%; width: 100%; inset: 0px; margin: auto;" data-bm="23"></img>`;
 
 
+                                
 ///////////////////////////////// FETCH PARA PEDIR PRODUCTOS //////////////////////////////////
 fetch("stockProductos.json")
   .then((response) => response.json())
@@ -124,7 +126,7 @@ fetch("stockProductos.json")
   .then(() => {
     recuperar();
   })
-  .catch((error) => console.log(error));
+  .catch((error) => console.error(error));
 
 /////////////////////////////////////////// ECOMMERCE /////////////////////////////////////////
 // mostrarProductos(productos)
@@ -229,7 +231,7 @@ function agregarAlCarrito(tituloProducto, precioProducto, imgProducto) {
                       <i class="fas fa-minus"></i>
                     </button>
     
-                    <input id="form1" min="1" name="quantity" value="1" type="number"
+                    <input id="form1" min="0" name="quantity" value="1" readonly type="number"
                       class="form-control form-control-sm cantidadItemCarrito text-center" />
     
                     <button class="btn btn-link px-2 botonMas"
@@ -280,6 +282,7 @@ function agregarAlCarrito(tituloProducto, precioProducto, imgProducto) {
   ////////////////////////////////////// BOTON MAS //////////////////////////////////////////
   carritoFlotante.querySelector(".botonMas").addEventListener("click", (e) => {
     e.target;
+    btnMenos.disabled = false;
     let repetido = productos.find((e) => e.nombre == tituloProducto);
     carritoArray.push(repetido);
     actualizarCarrito();
@@ -297,6 +300,13 @@ function agregarAlCarrito(tituloProducto, precioProducto, imgProducto) {
   ////////////////////////////////////// BOTON MENOS ////////////////////////////////////////
   const btnMenos = carritoFlotante.querySelector(".botonMenos");
   btnMenos.addEventListener("click", () => {
+    let repetido = carritoArray.find((e) => e.nombre == tituloProducto);
+    carritoArray.splice(repetido, 1);
+  
+    let cant = btnMenos.nextElementSibling.value;
+    if (cant == 0) {
+      btnMenos.disabled = true;
+    }
     Toastify({
       text: "Producto eliminado",
       className: "prod-eliminado",
@@ -306,6 +316,7 @@ function agregarAlCarrito(tituloProducto, precioProducto, imgProducto) {
       },
     }).showToast();
     actualizarCarrito();
+    localStorage.setItem("carrito", JSON.stringify(carritoArray));
   });
   actualizarCarrito();
   localStorage.setItem("carrito", JSON.stringify(carritoArray));
@@ -318,7 +329,7 @@ function actualizarCarrito() {
 
   const itemsCarrito = document.querySelectorAll(".productoCarrito");
 
-  itemsCarrito.forEach((item) => {
+  itemsCarrito.forEach(item => {
     const precioItemCarritoElemento = item.querySelector(".totalRealPrecio");
     const precioItemCarrito = Number(
       precioItemCarritoElemento.textContent.replace(`€`, "")
@@ -334,15 +345,13 @@ function actualizarCarrito() {
 
   contadorCarrito.innerText = cantidadTotal;
   totalCarrito.innerHTML = `€${total}`;
-
-  carritoArray.length === 0 && console.log("el carrito esta vacio");
 }
 
 /////////////////////////////////////// BOTON COMPRAR ////////////////////////////////////////
 botonComprar.addEventListener("click", botonComprarClick);
 
 function botonComprarClick() {
-  if (carritoArray.length > 0) {
+  if (carritoArray.length > 0 && totalCarrito.innerHTML > "€0") {
     Swal.fire({
       title: "Compra realizada correctamente",
       text: `El total de su compra es: ${totalCarrito.textContent}`,
@@ -372,11 +381,16 @@ function botonComprarClick() {
 botonVaciarCarrito.addEventListener("click", () => {
   carrito.innerHTML = "";
   carritoArray = [];
+  Swal.fire({
+    title: "Carrito vacio.",
+    icon: "warning",
+    confirmButtonText: "Ok",
+  });
   actualizarCarrito();
   localStorage.clear();
 });
 
-/////////////////////////////////////// RECUPERAR LS /////////////////////////////////////////
+/////////////////////////////////////// RECUPERAR LOCAL STORAGE /////////////////////////////////////////
 function recuperar() {
   let recuperoLocalStorage = JSON.parse(localStorage.getItem("carrito"));
 
@@ -386,3 +400,5 @@ function recuperar() {
     }
   }
 }
+
+// <div style="width:100%;height:0;padding-bottom:100%;position:absolute;"><iframe src="https://giphy.com/embed/YPcHIrjwX5RD8rsDlx" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
